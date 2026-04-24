@@ -1,127 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Diseño web para cafés de especialidad | Rankora</title>
+<title>Diseño web para cafés de especialidad | Rankora</title>
 
-  <style>
-    :root {
-      --bg: #11100e;
-      --surface: #191714;
-      --text: #f4efe7;
-      --muted: #b8aa99;
-      --line: rgba(244, 239, 231, 0.14);
-      --accent: #d6a15f;
-      --radius: 28px;
-      --container: 1180px;
-    }
+<style>
+:root {
+  --bg: #11100e;
+  --surface: #191714;
+  --text: #f4efe7;
+  --muted: #b8aa99;
+  --line: rgba(244, 239, 231, 0.14);
+  --accent: #d6a15f;
+  --radius: 28px;
+  --container: 1180px;
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
+body {
+  margin:0;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    body {
-      margin: 0;
-      font-family: Inter, Arial;
-      background: var(--bg);
-      color: var(--text);
-    }
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: auto;
+}
 
-    .container {
-      width: min(var(--container), calc(100% - 40px));
-      margin: 0 auto;
-    }
+header {
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
 
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      align-items: center;
-      padding: 80px 0;
-    }
+.hero {
+  padding:80px 0;
+}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
+.hero-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
 
-    h1 {
-      font-size: clamp(42px, 6vw, 80px);
-      line-height: 1;
-      margin: 0;
-    }
+h1 {
+  font-size: clamp(42px,6vw,72px);
+  line-height:1;
+}
 
-    .hero-copy {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 20px;
-      max-width: 520px;
-    }
+.hero-copy {
+  color: var(--muted);
+  margin-top:20px;
+  max-width:520px;
+}
 
-    .hero-card {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      padding: 34px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 22px;
+  background:var(--text);
+  color:#111;
+  border-radius:999px;
+  font-weight:bold;
+}
 
-    .hero-card h2 {
-      font-size: clamp(32px, 3vw, 56px);
-      line-height: 1;
-      margin: 0;
-    }
+/* CARD */
 
-    .hero-checklist {
-      margin-top: 40px;
-      border-top: 1px solid var(--line);
-    }
+.hero-card {
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  padding:30px;
+  background:rgba(255,255,255,0.02);
+}
 
-    .hero-check {
-      display: flex;
-      justify-content: space-between;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-    }
+.hero-card h2 {
+  font-size:32px;
+}
 
-    .hero-check strong {
-      color: var(--text);
-    }
+.hero-checklist {
+  margin-top:30px;
+}
 
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.hero-check {
+  display:flex;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+  color: var(--muted);
+}
+
+.hero-check strong {
+  color: var(--text);
+}
+
+/* SECTION */
+
+.section {
+  padding:100px 0;
+  border-top:1px solid var(--line);
+}
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card {
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:20px;
+}
+
+.split {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.panel {
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .hero-grid,
+  .cards,
+  .split {
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
+<header class="container">
+  <strong>Rankora</strong>
+</header>
+
+<main>
+
+<!-- HERO -->
 <section class="hero">
   <div class="container hero-grid">
 
     <div>
       <h1>
-        Creamos webs para cafés de especialidad que atraen clientes.
+        Creamos webs para cafés de especialidad que atraen clientes todos los días.
       </h1>
 
       <p class="hero-copy">
-        Diseñadas para aparecer en Google, mostrar tu propuesta clara y convertir visitas en clientes reales.
+        Diseñadas para que te encuentren en Google y conviertan visitas en clientes reales.
       </p>
+
+      <a href="#" class="btn">Hablemos</a>
     </div>
 
-    <aside class="hero-card">
-
-      <h2>3 puntos que revisamos antes de diseñar tu web.</h2>
+    <div class="hero-card">
+      <h2>3 puntos que revisamos</h2>
 
       <div class="hero-checklist">
-
         <div class="hero-check">
           <span>Cómo te encuentran</span>
           <strong>Google + Maps</strong>
@@ -133,16 +178,98 @@
         </div>
 
         <div class="hero-check">
-          <span>Cómo se percibe</span>
+          <span>Cómo se percibe tu café</span>
           <strong>Marca + diseño</strong>
         </div>
-
       </div>
-
-    </aside>
+    </div>
 
   </div>
 </section>
+
+<!-- PROBLEMA -->
+<section class="section">
+  <div class="container">
+
+    <h2>Instagram no alcanza</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>No aparecés en Google</h3>
+        <p>Perdés clientes que ya están buscando.</p>
+      </div>
+
+      <div class="card">
+        <h3>Tu carta está dispersa</h3>
+        <p>La gente no entiende qué ofrecés.</p>
+      </div>
+
+      <div class="card">
+        <h3>Tu marca no se percibe</h3>
+        <p>Online no transmite lo que sos.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SOLUCION -->
+<section class="section">
+  <div class="container split">
+
+    <div class="panel">
+      <h2>La solución</h2>
+      <p>Una web simple, clara y pensada para atraer clientes.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Resultado</h2>
+      <p>Una web que trabaja sola incluso cuando el local está cerrado.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section">
+  <div class="container">
+
+    <h2>Proceso</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Diagnóstico</h3>
+      </div>
+
+      <div class="card">
+        <h3>Estructura</h3>
+      </div>
+
+      <div class="card">
+        <h3>Publicación</h3>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <h2>Tu café necesita una web</h2>
+    <a href="#" class="btn">Empezar</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="container" style="padding:40px 0;">
+  © Rankora
+</footer>
 
 </body>
 </html>
