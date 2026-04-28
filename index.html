@@ -462,6 +462,46 @@
       gap: 20px;
     }
 
+    .rk-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #f5edc8;
+  color: #11100e;
+  border-bottom: 1px solid rgba(17, 16, 14, 0.12);
+  white-space: nowrap;
+}
+
+.rk-marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  min-width: max-content;
+  padding: 12px 0;
+  animation: rkMarquee 28s linear infinite;
+}
+
+.rk-marquee__track span {
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.rk-marquee__track span::after {
+  content: "✦";
+  margin-left: 32px;
+  opacity: 0.7;
+}
+
+@keyframes rkMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
     @media (max-width: 900px) {
       .nav-links {
         display: none;
@@ -542,6 +582,21 @@
 </head>
 
 <body>
+  
+  <!-- MARQUEE -->
+  <div class="rk-marquee">
+    <div class="rk-marquee__track">
+      <span>Rankora Digital</span>
+      <span>SEO para negocios locales</span>
+      <span>Webs que convierten</span>
+      <span>Crecé en Google</span>
+      <span>Rankora Digital</span>
+      <span>SEO para negocios locales</span>
+      <span>Webs que convierten</span>
+      <span>Crecé en Google</span>
+    </div>
+  </div>
+
   <header class="header">
     <nav class="nav container" aria-label="Navegación principal">
       <a href="/" class="logo">Rankora</a>
