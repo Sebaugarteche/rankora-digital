@@ -167,97 +167,58 @@
       margin-top: 38px;
     }
 
-    .hero-card {
-      position: relative;
-      min-height: 520px;
-      border-radius: var(--radius);
-      background: var(--dark);
-      color: var(--surface);
-      overflow: hidden;
-      padding: 34px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 24px 80px rgba(22, 19, 16, 0.18);
-    }
+    .hero-mockup {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 24px;
-      border-radius: 22px;
-      border: 1px solid rgba(244, 239, 231, 0.16);
-      pointer-events: none;
-    }
+.hero-mockup__image {
+  width: 118%;
+  max-width: none;
+  display: block;
+  filter: drop-shadow(0 28px 70px rgba(22, 19, 16, 0.2));
+}
 
-    .orbit {
-      position: absolute;
-      right: -80px;
-      top: -80px;
-      width: 290px;
-      height: 290px;
-      border-radius: 50%;
-      border: 1px solid rgba(185, 120, 54, 0.46);
-    }
+.hero-mockup__screen {
+  position: absolute;
+  top: 29%;
+  left: 23%;
+  width: 48%;
+  min-height: 29%;
+  padding: 18px;
+  background: var(--dark);
+  color: var(--surface);
+  transform: rotate(-7deg) skewX(-2deg);
+  transform-origin: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+}
 
-    .orbit::before,
-    .orbit::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(244, 239, 231, 0.12);
-    }
+.hero-mockup__screen p {
+  margin: 0;
+  color: var(--accent-soft);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+}
 
-    .orbit::before {
-      inset: 48px;
-    }
+.hero-mockup__screen strong {
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
 
-    .orbit::after {
-      inset: 94px;
-      background: rgba(185, 120, 54, 0.28);
-    }
-
-    .hero-card-content,
-    .hero-metrics {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-card h2 {
-      margin: 0;
-      font-size: clamp(32px, 3.2vw, 54px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      max-width: 500px;
-    }
-
-    .hero-card p {
-      margin: 22px 0 0;
-      color: #c8b9a7;
-      max-width: 460px;
-      font-size: 17px;
-    }
-
-    .hero-metrics {
-      display: grid;
-      border-top: 1px solid rgba(244, 239, 231, 0.16);
-    }
-
-    .metric {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(244, 239, 231, 0.16);
-      color: #c8b9a7;
-      font-size: 15px;
-    }
-
-    .metric strong {
-      color: var(--surface);
-      text-align: right;
-      white-space: nowrap;
-    }
+.hero-mockup__screen span {
+  font-size: 11px;
+  color: #c8b9a7;
+}
 
     .section {
       padding: 110px 0;
@@ -532,8 +493,16 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        min-height: auto;
+      .hero-mockup {
+        min-height: 360px;
+      }
+
+      .hero-mockup__image {
+        width: 100%;
+      }
+
+      .hero-mockup__screen {
+        display: none;
       }
 
       .niche-grid {
@@ -645,32 +614,21 @@
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Sistema Rankora">
-          <div class="orbit"></div>
+        <aside class="hero-mockup" aria-label="Sistema Rankora">
+  <img
+    src="assets/img/Hero%20Laptop.png"
+    alt="Mockup de una web estratégica diseñada por Rankora"
+    class="hero-mockup__image"
+  >
 
-          <div class="hero-card-content">
-            <p class="eyebrow">Sistema Rankora</p>
-            <h2>No diseñamos webs aisladas. Diseñamos puntos de entrada.</h2>
-            <p>
-              Cada página se construye desde una intención de búsqueda, una promesa clara y una acción concreta.
-            </p>
-          </div>
-
-          <div class="hero-metrics">
-            <div class="metric">
-              <span>Entrada</span>
-              <strong>Google</strong>
-            </div>
-            <div class="metric">
-              <span>Claridad</span>
-              <strong>Mensaje</strong>
-            </div>
-            <div class="metric">
-              <span>Salida</span>
-              <strong>Contacto</strong>
-            </div>
-          </div>
-        </aside>
+  <div class="hero-mockup__screen">
+    <p>Sistema Rankora</p>
+    <strong>Web estratégica + SEO + conversión</strong>
+    <span>Entrada → Google</span>
+    <span>Claridad → Mensaje</span>
+    <span>Salida → Contacto</span>
+  </div>
+</aside>
       </div>
     </section>
 
