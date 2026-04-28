@@ -95,11 +95,18 @@
       font-weight: 700;
       font-size: 14px;
       transition: transform 0.2s ease, opacity 0.2s ease;
+      .btn,
+      .btn:visited {
+      color: var(--surface);
     }
 
-    .btn:hover {
+      .btn:hover,
+      .btn:focus-visible {
+      color: var(--surface);
+      background: #2b2722;
+      border-color: #2b2722;
       transform: translateY(-2px);
-      opacity: 0.9;
+      opacity: 1;
     }
 
     .btn--ghost {
