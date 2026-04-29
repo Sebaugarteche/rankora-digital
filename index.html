@@ -525,6 +525,18 @@
   border-radius: 10px;
 }
 
+.cta-box h2 [data-i18n="es"] {
+  font-size: clamp(42px, 4.4vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.cta-box h2 [data-i18n="en"] {
+  font-size: clamp(42px, 4.4vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
     @keyframes rkMarquee {
       from {
         transform: translateX(0);
@@ -979,11 +991,36 @@
           <form class="contact-form" action="https://formspree.io/f/xwvaggkk" method="POST">
   <input type="hidden" name="_subject" value="Nuevo lead Rankora">
 
-  <input type="text" name="name" placeholder="Nombre" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Contame sobre tu proyecto" required></textarea>
+  <input
+    type="text"
+    name="name"
+    placeholder="Nombre"
+    data-placeholder-es="Nombre"
+    data-placeholder-en="Name"
+    required
+  >
 
-  <button type="submit" class="btn">Enviar mensaje</button>
+  <input
+    type="email"
+    name="email"
+    placeholder="Email"
+    data-placeholder-es="Email"
+    data-placeholder-en="Email"
+    required
+  >
+
+  <textarea
+    name="message"
+    placeholder="Contame sobre tu proyecto"
+    data-placeholder-es="Contame sobre tu proyecto"
+    data-placeholder-en="Tell us about your project"
+    required
+  ></textarea>
+
+  <button type="submit" class="btn">
+    <span data-i18n="es">Enviar mensaje</span>
+    <span data-i18n="en" hidden>Send message</span>
+  </button>
 </form>
         </div>
       </div>
