@@ -82,6 +82,27 @@
       color: var(--text);
     }
 
+    .lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 2px 4px;
+}
+
+.lang-switch button.is-active {
+  color: var(--text);
+}
+
     .btn {
   display: inline-flex;
   align-items: center;
@@ -635,17 +656,34 @@
     </div>
   </div>
 
-  <header class="header">
-    <nav class="nav container" aria-label="Navegación principal">
-      <a href="/" class="logo">Rankora</a>
+<header class="header">
+  <nav class="nav container" aria-label="Navegación principal">
+    <a href="/" class="logo">Rankora</a>
 
-      <div class="nav-links">
-        <a href="#nichos">Nichos</a>
-        <a href="#metodo">Método</a>
-        <a href="#contacto" class="btn">Hablemos</a>
+    <div class="nav-links">
+      <a href="#nichos">
+  <span data-lang="es">Nichos</span>
+  <span data-lang="en" hidden>Niches</span>
+</a>
+
+<a href="#metodo">
+  <span data-lang="es">Método</span>
+  <span data-lang="en" hidden>Method</span>
+</a>
+
+<a href="#contacto" class="btn">
+  <span data-lang="es">Hablemos</span>
+  <span data-lang="en" hidden>Let's talk</span>
+</a>
+
+      <div class="lang-switch">
+        <button data-lang="es" class="is-active">ES</button>
+        <span>/</span>
+        <button data-lang="en">EN</button>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
   <main>
     <section class="hero">
@@ -814,5 +852,35 @@
       <span>Webs que posicionan marcas</span>
     </div>
   </footer>
+
+<script>
+  const buttons = document.querySelectorAll('.lang-switch button');
+  const texts = document.querySelectorAll('[data-lang]');
+
+  function setLang(lang) {
+    // toggle active
+    buttons.forEach(b => b.classList.remove('is-active'));
+    document.querySelector(`.lang-switch button[data-lang="${lang}"]`).classList.add('is-active');
+
+    // mostrar / ocultar sin romper layout
+    texts.forEach(el => {
+      el.hidden = el.dataset.lang !== lang;
+    });
+
+    // guardar
+    localStorage.setItem('lang', lang);
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.dataset.lang);
+    });
+  });
+
+  // idioma inicial
+  const savedLang = localStorage.getItem('lang') || 'es';
+  setLang(savedLang);
+</script>
+  
 </body>
 </html>
