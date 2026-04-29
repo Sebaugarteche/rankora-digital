@@ -483,24 +483,46 @@
     }
 
     .contact-form {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 360px;
+  gap: 10px;
 }
 
 .contact-form input,
 .contact-form textarea {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(244, 239, 231, 0.18);
   background: var(--surface);
+  color: var(--dark);
+  font: inherit;
   font-size: 14px;
+  line-height: 1.3;
+  outline: none;
+}
+
+.contact-form input {
+  min-height: 48px;
 }
 
 .contact-form textarea {
-  min-height: 100px;
-  resize: none;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+}
+
+.contact-form .btn {
+  width: fit-content;
+  margin-top: 6px;
+  border-radius: 10px;
 }
 
     @keyframes rkMarquee {
@@ -954,7 +976,9 @@
             </p>
           </div>
 
-          <form class="contact-form">
+          <form class="contact-form" action="https://formspree.io/f/xwvaggkk" method="POST">
+  <input type="hidden" name="_subject" value="Nuevo lead Rankora">
+
   <input type="text" name="name" placeholder="Nombre" required>
   <input type="email" name="email" placeholder="Email" required>
   <textarea name="message" placeholder="Contame sobre tu proyecto" required></textarea>
@@ -976,53 +1000,60 @@
     </div>
   </footer>
 
-  <script>
-    const buttons = document.querySelectorAll('.lang-switch button');
-    const texts = document.querySelectorAll('[data-i18n]');
+<script>
+  const buttons = document.querySelectorAll('.lang-switch button');
+  const texts = document.querySelectorAll('[data-i18n]');
+  const placeholders = document.querySelectorAll('[data-placeholder-es]');
 
-    function setLang(lang) {
-      const activeButton = document.querySelector(`.lang-switch button[data-lang="${lang}"]`);
+  function setLang(lang) {
+    const activeButton = document.querySelector(`.lang-switch button[data-lang="${lang}"]`);
 
-      if (!activeButton) return;
-
-      buttons.forEach(button => {
-        button.classList.remove('is-active');
-      });
-
-      activeButton.classList.add('is-active');
-
-      texts.forEach(el => {
-        el.hidden = el.dataset.i18n !== lang;
-      });
-
-      document.documentElement.lang = lang;
-
-      if (lang === 'en') {
-        document.title = 'Rankora — Websites that rank brands';
-        document.querySelector('meta[name="description"]').setAttribute(
-          'content',
-          'We create strategic websites that rank brands on Google and turn visitors into customers. Specialists in specialty coffee shops, wellness, and personal brands.'
-        );
-      } else {
-        document.title = 'Rankora — Webs que posicionan marcas';
-        document.querySelector('meta[name="description"]').setAttribute(
-          'content',
-          'Creamos webs estratégicas que posicionan marcas en Google y convierten visitas en clientes. Especialistas en cafés de especialidad, wellness y marcas personales.'
-        );
-      }
-
-      localStorage.setItem('rankoraLang', lang);
-    }
+    if (!activeButton) return;
 
     buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        setLang(button.dataset.lang);
-      });
+      button.classList.remove('is-active');
     });
 
-    const savedLang = localStorage.getItem('rankoraLang') || 'es';
-    setLang(savedLang);
-  </script>
+    activeButton.classList.add('is-active');
+
+    texts.forEach(el => {
+      el.hidden = el.dataset.i18n !== lang;
+    });
+
+    placeholders.forEach(field => {
+      field.placeholder = lang === 'es'
+        ? field.dataset.placeholderEs
+        : field.dataset.placeholderEn;
+    });
+
+    document.documentElement.lang = lang;
+
+    if (lang === 'en') {
+      document.title = 'Rankora — Websites that rank brands';
+      document.querySelector('meta[name="description"]').setAttribute(
+        'content',
+        'We create strategic websites that rank brands on Google and turn visitors into customers. Specialists in specialty coffee shops, wellness, and personal brands.'
+      );
+    } else {
+      document.title = 'Rankora — Webs que posicionan marcas';
+      document.querySelector('meta[name="description"]').setAttribute(
+        'content',
+        'Creamos webs estratégicas que posicionan marcas en Google y convierten visitas en clientes. Especialistas en cafés de especialidad, wellness y marcas personales.'
+      );
+    }
+
+    localStorage.setItem('rankoraLang', lang);
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      setLang(button.dataset.lang);
+    });
+  });
+
+  const savedLang = localStorage.getItem('rankoraLang') || 'es';
+  setLang(savedLang);
+</script>
 
 </body>
 </html>
