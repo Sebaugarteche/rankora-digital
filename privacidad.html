@@ -10,50 +10,61 @@
   <link rel="stylesheet" href="/assets/css/home.css">
 
   <style>
-    .legal-hero {
-      padding: 120px 0 40px;
-    }
+  .legal-hero {
+  text-align: center;
+  padding: 120px 0 60px;
+}
 
-    .legal-title {
-      font-size: clamp(60px, 10vw, 140px);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
-      margin: 0;
-    }
+.legal-hero__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
 
-    .legal-sub {
-      max-width: 420px;
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 18px;
-    }
+.legal-title {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin: 0;
+}
 
-    .legal-image {
-      margin: 60px 0;
-      border-radius: 20px;
-      overflow: hidden;
-    }
+.legal-sub {
+  max-width: 720px;
+  margin: 24px auto 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.35;
+}
 
-    .legal-image img {
-      width: 100%;
-      display: block;
-    }
+.legal-image {
+  margin: 40px auto 80px;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-    .legal-content {
-      max-width: 900px;
-    }
+.legal-image img {
+  width: 100%;
+  display: block;
+}
 
-    .legal-content h2 {
-      font-size: 34px;
-      margin: 60px 0 20px;
-    }
+.legal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
 
-    .legal-content p {
-      color: var(--muted);
-      margin-bottom: 16px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
+.legal-content h2 {
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 72px 0 20px;
+}
+
+.legal-content p {
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.65;
+}
   </style>
 </head>
 
@@ -67,45 +78,107 @@
 
 <main>
 
-<section class="legal-hero container">
-  <h1 class="legal-title">Privacidad</h1>
+<section class="legal-hero">
+  <div class="container legal-hero__inner">
 
-  <p class="legal-sub">
-    Cómo recopilamos, usamos y protegemos tu información.
-  </p>
+    <h1 class="legal-title">Política de Privacidad</h1>
 
-  <div class="legal-image">
-    <img src="/assets/img/politica-privacidad-web-rankora-espana.jpg" alt="Política de privacidad Rankora">
-  </div>
-
-  <div class="legal-content">
-
-    <h2>1. Datos recopilados</h2>
-    <p>
-      Recopilamos datos que nos proporcionás voluntariamente a través del formulario de contacto.
-    </p>
-
-    <h2>2. Uso de la información</h2>
-    <p>
-      Utilizamos tus datos para responder consultas y mejorar nuestros servicios.
-    </p>
-
-    <h2>3. Protección</h2>
-    <p>
-      Implementamos medidas de seguridad para proteger tu información.
-    </p>
-
-    <h2>4. Terceros</h2>
-    <p>
-      No compartimos tus datos con terceros sin consentimiento.
-    </p>
-
-    <h2>5. Derechos</h2>
-    <p>
-      Podés solicitar acceso, modificación o eliminación de tus datos.
+    <p class="legal-sub">
+      Cómo recopilamos, utilizamos y protegemos la información de los usuarios que interactúan con Rankora Digital.
     </p>
 
   </div>
+</section>
+
+<div class="container legal-image">
+  <img 
+    src="/assets/img/politica-privacidad-web-rankora-espana.jpg" 
+    alt="Política de privacidad Rankora"
+  >
+</div>
+
+<section class="legal-content container">
+
+<h2>1. Datos recopilados</h2>
+<p>
+Recopilamos información personal que el usuario proporciona de forma voluntaria al completar formularios de contacto, como nombre, dirección de correo electrónico y cualquier otro dato incluido en el mensaje.
+</p>
+<p>
+Además, pueden recogerse datos técnicos de navegación como dirección IP, tipo de dispositivo, navegador y comportamiento dentro del sitio, con fines analíticos y de mejora del servicio.
+</p>
+
+<h2>2. Uso de la información</h2>
+<p>
+La información recopilada se utiliza para responder consultas, gestionar solicitudes comerciales y mejorar la calidad de los servicios ofrecidos por Rankora Digital.
+</p>
+<p>
+También puede utilizarse para analizar el comportamiento de los usuarios en el sitio y optimizar la experiencia, el contenido y la estructura de las páginas.
+</p>
+
+<h2>3. Conservación de datos</h2>
+<p>
+Los datos personales se conservarán únicamente durante el tiempo necesario para cumplir con la finalidad para la cual fueron recopilados o mientras exista una relación activa con el usuario.
+</p>
+<p>
+Una vez finalizada dicha relación, los datos podrán ser eliminados o anonimizados, salvo que exista una obligación legal de conservación.
+</p>
+
+<h2>4. Protección de la información</h2>
+<p>
+Rankora Digital implementa medidas técnicas y organizativas razonables para proteger la información personal contra accesos no autorizados, pérdida o alteración.
+</p>
+<p>
+Sin embargo, ningún sistema es completamente seguro, por lo que no se puede garantizar la seguridad absoluta de los datos transmitidos a través de internet.
+</p>
+
+<h2>5. Compartición de datos</h2>
+<p>
+No vendemos, alquilamos ni compartimos información personal con terceros, salvo en los casos necesarios para la prestación de servicios técnicos (como plataformas de formularios o analítica).
+</p>
+<p>
+Estos proveedores externos cumplen con sus propias políticas de privacidad y normativas aplicables.
+</p>
+
+<h2>6. Cookies y tecnologías similares</h2>
+<p>
+Este sitio puede utilizar cookies o tecnologías similares para analizar el comportamiento de navegación y mejorar la experiencia del usuario.
+</p>
+<p>
+El usuario puede gestionar o desactivar las cookies desde la configuración de su navegador en cualquier momento.
+</p>
+
+<h2>7. Derechos del usuario</h2>
+<p>
+El usuario tiene derecho a acceder, rectificar o eliminar sus datos personales, así como a solicitar la limitación de su tratamiento.
+</p>
+<p>
+Para ejercer estos derechos, puede contactar a través de los canales disponibles en el sitio web.
+</p>
+
+<h2>8. Enlaces a terceros</h2>
+<p>
+El sitio puede incluir enlaces a páginas externas que no son gestionadas por Rankora Digital.
+</p>
+<p>
+No nos responsabilizamos por el contenido ni por las políticas de privacidad de dichos sitios.
+</p>
+
+<h2>9. Modificaciones de la política</h2>
+<p>
+Rankora Digital se reserva el derecho de modificar esta política en cualquier momento para adaptarla a cambios legales o estratégicos.
+</p>
+<p>
+Se recomienda revisar esta página periódicamente para mantenerse informado.
+</p>
+
+<h2>10. Legislación aplicable</h2>
+<p>
+Esta política se rige por la legislación vigente en España en materia de protección de datos.
+</p>
+<p>
+En caso de conflicto, se intentará una resolución amistosa antes de acudir a instancias legales.
+</p>
+
 </section>
 
 </main>
