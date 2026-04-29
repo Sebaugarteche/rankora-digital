@@ -185,20 +185,25 @@
 
 .hero-mockup__screen {
   position: absolute;
-  top: 27%;
-  left: 18%;
-  width: 55%;
-  height: 31%;
-  padding: 18px;
-  background: var(--dark);
+  top: 25.5%;
+  left: 13.5%;
+  width: 49%;
+  height: 30%;
+  padding: 18px 20px;
+
+  background: #11100e;
   color: var(--surface);
-  transform: rotate(-6.2deg);
+
+  transform: rotate(-6.2deg) skewX(-3deg);
   transform-origin: center;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
   overflow: hidden;
+
+  border-radius: 2px;
 }
 
 .hero-mockup__screen p {
@@ -211,13 +216,14 @@
 }
 
 .hero-mockup__screen strong {
-  font-size: clamp(24px, 2.7vw, 42px);
-  line-height: 0.92;
-  letter-spacing: -0.06em;
+  max-width: 320px;
+  font-size: clamp(20px, 2.1vw, 34px);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
 }
 
 .hero-mockup__screen span {
-  font-size: 12px;
+  font-size: 10px;
   color: #c8b9a7;
 }
 
