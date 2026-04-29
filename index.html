@@ -83,79 +83,82 @@
     }
 
     .lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--muted);
-}
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+    }
 
-.lang-switch button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: inherit;
-  padding: 2px 4px;
-}
+    .lang-switch button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+      padding: 2px 4px;
+      opacity: 0.5;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
 
-.lang-switch button.is-active {
-  color: var(--text);
-}
+    .lang-switch button.is-active {
+      color: var(--text);
+      opacity: 1;
+    }
 
     .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 16px;
-  border: 1px solid var(--dark);
-  background: var(--dark);
-  color: var(--surface);
-  font-weight: 700;
-  font-size: 14px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 16px;
+      border: 1px solid var(--dark);
+      background: var(--dark);
+      color: var(--surface);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
 
-.btn,
-.btn:visited {
-  color: var(--surface);
-}
+    .btn,
+    .btn:visited {
+      color: var(--surface);
+    }
 
-.btn:hover,
-.btn:focus-visible {
-  color: var(--surface);
-  background: var(--dark);
-  border-color: var(--dark);
-  transform: scale(1.03);
-  opacity: 1;
-}
+    .btn:hover,
+    .btn:focus-visible {
+      color: var(--surface);
+      background: var(--dark);
+      border-color: var(--dark);
+      transform: scale(1.03);
+      opacity: 1;
+    }
 
-/* VARIANTE GHOST (CORREGIDA) */
-.btn--ghost {
-  background: transparent;
-  color: var(--dark);
-  border: 1px solid var(--dark);
-}
+    .btn--ghost {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid var(--dark);
+    }
 
-.btn--ghost:hover,
-.btn--ghost:focus-visible {
-  background: var(--dark);
-  color: var(--surface);
-  border-color: var(--dark);
-}
+    .btn--ghost:hover,
+    .btn--ghost:focus-visible {
+      background: var(--dark);
+      color: var(--surface);
+      border-color: var(--dark);
+    }
 
     .hero {
       padding: 110px 0 120px;
     }
 
     .hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
 
     .eyebrow {
       color: var(--accent);
@@ -189,107 +192,44 @@
     }
 
     .hero-mockup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      position: relative;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(28px);
       perspective: 1000px;
-}
-
-.hero-mockup__image {
-  width: 120%;
-  max-width: 620px;
-  height: auto;
-  display: block;
-}
+    }
 
     .hero-mockup__image {
-  width: 120%;
-  max-width: 620px;
-  height: auto;
-  display: block;
-  opacity: 0;
-  transform: rotateY(-90deg) scale(0.92);
-  transform-origin: center;
-  animation: laptopIntro 1.2s ease-out 0.25s forwards;
-  will-change: transform, opacity;
-}
+      width: 145%;
+      max-width: none;
+      height: auto;
+      display: block;
+      opacity: 0;
+      transform: rotateY(-90deg) scale(0.92);
+      transform-origin: center;
+      animation: laptopIntro 1.2s ease-out 0.25s forwards;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 34px 80px rgba(22, 19, 16, 0.22));
+    }
 
-@keyframes laptopIntro {
-  0% {
-    opacity: 0;
-    transform: rotateY(-90deg) scale(0.92);
-  }
+    @keyframes laptopIntro {
+      0% {
+        opacity: 0;
+        transform: rotateY(-90deg) scale(0.92);
+      }
 
-  65% {
-    opacity: 1;
-    transform: rotateY(12deg) scale(1.03);
-  }
+      65% {
+        opacity: 1;
+        transform: rotateY(12deg) scale(1.03);
+      }
 
-  100% {
-    opacity: 1;
-    transform: rotateY(0deg) scale(1);
-  }
-}
-
-    .hero-mockup {
-  position: relative;
-  min-height: 640px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateX(28px);
-}
-
-.hero-mockup__image {
-  width: 145%;
-  max-width: none;
-  display: block;
-  filter: drop-shadow(0 34px 80px rgba(22, 19, 16, 0.22));
-}
-
-.hero-mockup__screen {
-  position: absolute;
-  top: 25.5%;
-  left: 13.5%;
-  width: 49%;
-  height: 30%;
-  padding: 18px 20px;
-
-  background: #11100e;
-  color: var(--surface);
-
-  transform: rotate(-6.2deg) skewX(-3deg);
-  transform-origin: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 7px;
-  overflow: hidden;
-
-  border-radius: 2px;
-}
-
-.hero-mockup__screen p {
-  margin: 0;
-  color: var(--accent-soft);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-weight: 800;
-}
-
-.hero-mockup__screen strong {
-  max-width: 320px;
-  font-size: clamp(20px, 2.1vw, 34px);
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-}
-
-.hero-mockup__screen span {
-  font-size: 10px;
-  color: #c8b9a7;
-}
+      100% {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+      }
+    }
 
     .section {
       padding: 110px 0;
@@ -513,44 +453,44 @@
     }
 
     .rk-marquee {
-  width: 100%;
-  overflow: hidden;
-  background: #f5edc8;
-  color: #11100e;
-  border-bottom: 1px solid rgba(17, 16, 14, 0.12);
-  white-space: nowrap;
-}
+      width: 100%;
+      overflow: hidden;
+      background: #f5edc8;
+      color: #11100e;
+      border-bottom: 1px solid rgba(17, 16, 14, 0.12);
+      white-space: nowrap;
+    }
 
-.rk-marquee__track {
-  display: inline-flex;
-  align-items: center;
-  gap: 32px;
-  min-width: max-content;
-  padding: 12px 0;
-  animation: rkMarquee 28s linear infinite;
-}
+    .rk-marquee__track {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      min-width: max-content;
+      padding: 12px 0;
+      animation: rkMarquee 28s linear infinite;
+    }
 
-.rk-marquee__track span {
-  font-size: 15px;
-  line-height: 1;
-  font-weight: 500;
-}
+    .rk-marquee__track span {
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 500;
+    }
 
-.rk-marquee__track span::after {
-  content: "✦";
-  margin-left: 32px;
-  opacity: 0.7;
-}
+    .rk-marquee__track span::after {
+      content: "✦";
+      margin-left: 32px;
+      opacity: 0.7;
+    }
 
-@keyframes rkMarquee {
-  from {
-    transform: translateX(0);
-  }
+    @keyframes rkMarquee {
+      from {
+        transform: translateX(0);
+      }
 
-  to {
-    transform: translateX(-50%);
-  }
-}
+      to {
+        transform: translateX(-50%);
+      }
+    }
 
     @media (max-width: 900px) {
       .nav-links {
@@ -565,17 +505,13 @@
       }
 
       .hero-mockup {
-  min-height: 420px;
-  transform: none;
-}
+        min-height: 420px;
+        transform: none;
+      }
 
-.hero-mockup__image {
-  width: 115%;
-}
-
-.hero-mockup__screen {
-  display: none;
-}
+      .hero-mockup__image {
+        width: 115%;
+      }
 
       .niche-grid {
         grid-template-columns: 1fr;
@@ -616,21 +552,14 @@
         padding: 76px 0;
       }
 
-      .hero-card,
       .panel,
       .niche-card {
         padding: 26px;
       }
 
-      .metric,
       .list li {
         flex-direction: column;
         gap: 6px;
-      }
-
-      .metric strong {
-        text-align: left;
-        white-space: normal;
       }
 
       .footer-inner {
@@ -641,86 +570,123 @@
 </head>
 
 <body>
-  
-  <!-- MARQUEE -->
+
   <div class="rk-marquee">
     <div class="rk-marquee__track">
-      <span>Rankora Digital</span>
-      <span>SEO para negocios locales</span>
-      <span>Webs que convierten</span>
-      <span>Crecé en Google</span>
-      <span>Rankora Digital</span>
-      <span>SEO para negocios locales</span>
-      <span>Webs que convierten</span>
-      <span>Crecé en Google</span>
+      <span data-i18n="es">Rankora Digital</span>
+      <span data-i18n="en" hidden>Rankora Digital</span>
+
+      <span data-i18n="es">SEO para negocios locales</span>
+      <span data-i18n="en" hidden>SEO for local businesses</span>
+
+      <span data-i18n="es">Webs que convierten</span>
+      <span data-i18n="en" hidden>Websites that convert</span>
+
+      <span data-i18n="es">Crecé en Google</span>
+      <span data-i18n="en" hidden>Grow on Google</span>
+
+      <span data-i18n="es">Rankora Digital</span>
+      <span data-i18n="en" hidden>Rankora Digital</span>
+
+      <span data-i18n="es">SEO para negocios locales</span>
+      <span data-i18n="en" hidden>SEO for local businesses</span>
+
+      <span data-i18n="es">Webs que convierten</span>
+      <span data-i18n="en" hidden>Websites that convert</span>
+
+      <span data-i18n="es">Crecé en Google</span>
+      <span data-i18n="en" hidden>Grow on Google</span>
     </div>
   </div>
 
-<header class="header">
-  <nav class="nav container" aria-label="Navegación principal">
-    <a href="/" class="logo">Rankora</a>
+  <header class="header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a href="/" class="logo">Rankora</a>
 
-    <div class="nav-links">
-      <a href="#nichos">
-  <span data-lang="es">Nichos</span>
-  <span data-lang="en" hidden>Niches</span>
-</a>
+      <div class="nav-links">
+        <a href="#nichos">
+          <span data-i18n="es">Nichos</span>
+          <span data-i18n="en" hidden>Niches</span>
+        </a>
 
-<a href="#metodo">
-  <span data-lang="es">Método</span>
-  <span data-lang="en" hidden>Method</span>
-</a>
+        <a href="#metodo">
+          <span data-i18n="es">Método</span>
+          <span data-i18n="en" hidden>Method</span>
+        </a>
 
-<a href="#contacto" class="btn">
-  <span data-lang="es">Hablemos</span>
-  <span data-lang="en" hidden>Let's talk</span>
-</a>
+        <a href="#contacto" class="btn">
+          <span data-i18n="es">Hablemos</span>
+          <span data-i18n="en" hidden>Let's talk</span>
+        </a>
 
-      <div class="lang-switch">
-        <button data-lang="es" class="is-active">ES</button>
-        <span>/</span>
-        <button data-lang="en">EN</button>
+        <div class="lang-switch" aria-label="Cambiar idioma">
+          <button type="button" data-lang="es" class="is-active">ES</button>
+          <span>/</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
   <main>
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Web estratégica · SEO · Conversión</p>
+          <p class="eyebrow">
+            <span data-i18n="es">Web estratégica · SEO · Conversión</span>
+            <span data-i18n="en" hidden>Strategic websites · SEO · Conversion</span>
+          </p>
 
-          <h1>Webs que posicionan marcas y convierten visitas en clientes.</h1>
+          <h1>
+            <span data-i18n="es">Webs que posicionan marcas y convierten visitas en clientes.</span>
+            <span data-i18n="en" hidden>Websites that rank brands and turn visitors into customers.</span>
+          </h1>
 
           <p class="hero-copy">
-            Diseñamos páginas web para negocios que necesitan ser encontrados, explicar mejor su propuesta y transformar su presencia digital en resultados reales.
+            <span data-i18n="es">Diseñamos páginas web para negocios que necesitan ser encontrados, explicar mejor su propuesta y transformar su presencia digital en resultados reales.</span>
+            <span data-i18n="en" hidden>We design websites for businesses that need to be found, communicate their offer clearly, and turn their digital presence into measurable results.</span>
           </p>
 
           <div class="hero-actions">
-            <a href="#nichos" class="btn">Ver especializaciones</a>
-            <a href="#metodo" class="btn btn--ghost">Cómo trabajamos</a>
+            <a href="#nichos" class="btn">
+              <span data-i18n="es">Ver especializaciones</span>
+              <span data-i18n="en" hidden>View specializations</span>
+            </a>
+
+            <a href="#metodo" class="btn btn--ghost">
+              <span data-i18n="es">Cómo trabajamos</span>
+              <span data-i18n="en" hidden>How we work</span>
+            </a>
           </div>
         </div>
 
         <aside class="hero-mockup">
-  <img 
-    src="assets/img/Hero Laptop.png" 
-    alt="Mockup de laptop mostrando una web"
-    class="hero-mockup__image"
-  >
-</aside>
+          <img
+            src="assets/img/Hero Laptop.png"
+            alt="Mockup de laptop mostrando una web estratégica"
+            class="hero-mockup__image"
+          >
+        </aside>
       </div>
     </section>
 
     <section class="section" id="nichos">
       <div class="container">
         <div class="section-head">
-          <p class="section-label">Especialización</p>
+          <p class="section-label">
+            <span data-i18n="es">Especialización</span>
+            <span data-i18n="en" hidden>Specialization</span>
+          </p>
+
           <div>
-            <h2>Páginas específicas para marcas que no quieren sonar genéricas.</h2>
+            <h2>
+              <span data-i18n="es">Páginas específicas para marcas que no quieren sonar genéricas.</span>
+              <span data-i18n="en" hidden>Specific pages for brands that do not want to sound generic.</span>
+            </h2>
+
             <p class="lead">
-              Rankora se estructura por nichos. Cada vertical tiene su propia página, su propia búsqueda y su propio mensaje comercial.
+              <span data-i18n="es">Rankora se estructura por nichos. Cada vertical tiene su propia página, su propia búsqueda y su propio mensaje comercial.</span>
+              <span data-i18n="en" hidden>Rankora is structured around niches. Each vertical has its own page, its own search intent, and its own commercial message.</span>
             </p>
           </div>
         </div>
@@ -729,27 +695,60 @@
           <a href="web-cafe.html" class="niche-card niche-card--active">
             <span>01</span>
             <div>
-              <h3>Cafés de especialidad</h3>
-              <p>Webs para mostrar carta, ubicación, propuesta visual y mejorar búsquedas locales.</p>
-              <small>Ver página →</small>
+              <h3>
+                <span data-i18n="es">Cafés de especialidad</span>
+                <span data-i18n="en" hidden>Specialty coffee shops</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Webs para mostrar carta, ubicación, propuesta visual y mejorar búsquedas locales.</span>
+                <span data-i18n="en" hidden>Websites to show menus, location, visual identity, and improve local search visibility.</span>
+              </p>
+
+              <small>
+                <span data-i18n="es">Ver página →</span>
+                <span data-i18n="en" hidden>View page →</span>
+              </small>
             </div>
           </a>
 
           <article class="niche-card">
             <span>02</span>
             <div>
-              <h3>Wellness & bienestar</h3>
-              <p>Webs para terapeutas, estudios, marcas de bienestar y proyectos conscientes.</p>
-              <small>Próximamente →</small>
+              <h3>
+                <span data-i18n="es">Wellness & bienestar</span>
+                <span data-i18n="en" hidden>Wellness & wellbeing</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Webs para terapeutas, estudios, marcas de bienestar y proyectos conscientes.</span>
+                <span data-i18n="en" hidden>Websites for therapists, studios, wellbeing brands, and conscious projects.</span>
+              </p>
+
+              <small>
+                <span data-i18n="es">Próximamente →</span>
+                <span data-i18n="en" hidden>Coming soon →</span>
+              </small>
             </div>
           </article>
 
           <article class="niche-card">
             <span>03</span>
             <div>
-              <h3>Marcas personales</h3>
-              <p>Webs para posicionar autoridad, presentar servicios y captar oportunidades.</p>
-              <small>Próximamente →</small>
+              <h3>
+                <span data-i18n="es">Marcas personales</span>
+                <span data-i18n="en" hidden>Personal brands</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Webs para posicionar autoridad, presentar servicios y captar oportunidades.</span>
+                <span data-i18n="en" hidden>Websites to build authority, present services, and capture new opportunities.</span>
+              </p>
+
+              <small>
+                <span data-i18n="es">Próximamente →</span>
+                <span data-i18n="en" hidden>Coming soon →</span>
+              </small>
             </div>
           </article>
         </div>
@@ -759,28 +758,80 @@
     <section class="section" id="metodo">
       <div class="container split">
         <div class="panel">
-          <p class="section-label">Método</p>
-          <h2>Primero estrategia. Después diseño.</h2>
+          <p class="section-label">
+            <span data-i18n="es">Método</span>
+            <span data-i18n="en" hidden>Method</span>
+          </p>
+
+          <h2>
+            <span data-i18n="es">Primero estrategia. Después diseño.</span>
+            <span data-i18n="en" hidden>Strategy first. Design second.</span>
+          </h2>
 
           <ul class="list">
-            <li><strong>Keyword</strong><span>Qué busca tu cliente</span></li>
-            <li><strong>Mensaje</strong><span>Qué necesita entender</span></li>
-            <li><strong>Estructura</strong><span>Cómo ordenamos la decisión</span></li>
-            <li><strong>Diseño</strong><span>Cómo elevamos percepción</span></li>
+            <li>
+              <strong>Keyword</strong>
+              <span>
+                <span data-i18n="es">Qué busca tu cliente</span>
+                <span data-i18n="en" hidden>What your customer searches for</span>
+              </span>
+            </li>
+
+            <li>
+              <strong>
+                <span data-i18n="es">Mensaje</span>
+                <span data-i18n="en" hidden>Message</span>
+              </strong>
+              <span>
+                <span data-i18n="es">Qué necesita entender</span>
+                <span data-i18n="en" hidden>What they need to understand</span>
+              </span>
+            </li>
+
+            <li>
+              <strong>
+                <span data-i18n="es">Estructura</span>
+                <span data-i18n="en" hidden>Structure</span>
+              </strong>
+              <span>
+                <span data-i18n="es">Cómo ordenamos la decisión</span>
+                <span data-i18n="en" hidden>How we structure the decision</span>
+              </span>
+            </li>
+
+            <li>
+              <strong>
+                <span data-i18n="es">Diseño</span>
+                <span data-i18n="en" hidden>Design</span>
+              </strong>
+              <span>
+                <span data-i18n="es">Cómo elevamos percepción</span>
+                <span data-i18n="en" hidden>How we raise perceived value</span>
+              </span>
+            </li>
           </ul>
         </div>
 
         <div class="panel panel--dark">
-          <p class="section-label">Diferencia</p>
-          <h2>Tu web no debería ser una tarjeta de presentación.</h2>
+          <p class="section-label">
+            <span data-i18n="es">Diferencia</span>
+            <span data-i18n="en" hidden>Difference</span>
+          </p>
+
+          <h2>
+            <span data-i18n="es">Tu web no debería ser una tarjeta de presentación.</span>
+            <span data-i18n="en" hidden>Your website should not be a business card.</span>
+          </h2>
+
           <p>
-            Debería funcionar como una pieza activa de posicionamiento: atraer, ordenar, convencer y facilitar el contacto.
+            <span data-i18n="es">Debería funcionar como una pieza activa de posicionamiento: atraer, ordenar, convencer y facilitar el contacto.</span>
+            <span data-i18n="en" hidden>It should work as an active positioning asset: attracting, organizing, convincing, and making contact easier.</span>
           </p>
 
           <ul class="list">
-            <li><strong>SEO</strong><span>Para aparecer</span></li>
-            <li><strong>UX</strong><span>Para entender</span></li>
-            <li><strong>CTA</strong><span>Para convertir</span></li>
+            <li><strong>SEO</strong><span><span data-i18n="es">Para aparecer</span><span data-i18n="en" hidden>To be found</span></span></li>
+            <li><strong>UX</strong><span><span data-i18n="es">Para entender</span><span data-i18n="en" hidden>To be understood</span></span></li>
+            <li><strong>CTA</strong><span><span data-i18n="es">Para convertir</span><span data-i18n="en" hidden>To convert</span></span></li>
           </ul>
         </div>
       </div>
@@ -789,11 +840,20 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <p class="section-label">Proceso</p>
+          <p class="section-label">
+            <span data-i18n="es">Proceso</span>
+            <span data-i18n="en" hidden>Process</span>
+          </p>
+
           <div>
-            <h2>Un proceso claro para publicar sin improvisar.</h2>
+            <h2>
+              <span data-i18n="es">Un proceso claro para publicar sin improvisar.</span>
+              <span data-i18n="en" hidden>A clear process to publish without improvising.</span>
+            </h2>
+
             <p class="lead">
-              El objetivo es construir una primera versión sólida, rápida y preparada para crecer con nuevas páginas SEO.
+              <span data-i18n="es">El objetivo es construir una primera versión sólida, rápida y preparada para crecer con nuevas páginas SEO.</span>
+              <span data-i18n="en" hidden>The goal is to build a solid first version, launch quickly, and prepare the site to grow with new SEO pages.</span>
             </p>
           </div>
         </div>
@@ -801,29 +861,57 @@
         <div class="process">
           <article class="process-item">
             <div>
-              <h3>Diagnóstico</h3>
-              <p>Revisamos tu negocio, tu cliente, tus servicios y cómo debería encontrarte Google.</p>
+              <h3>
+                <span data-i18n="es">Diagnóstico</span>
+                <span data-i18n="en" hidden>Diagnosis</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Revisamos tu negocio, tu cliente, tus servicios y cómo debería encontrarte Google.</span>
+                <span data-i18n="en" hidden>We review your business, your customer, your services, and how Google should find you.</span>
+              </p>
             </div>
           </article>
 
           <article class="process-item">
             <div>
-              <h3>Arquitectura SEO</h3>
-              <p>Definimos páginas, jerarquías, títulos, contenido y enlaces internos antes de diseñar.</p>
+              <h3>
+                <span data-i18n="es">Arquitectura SEO</span>
+                <span data-i18n="en" hidden>SEO architecture</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Definimos páginas, jerarquías, títulos, contenido y enlaces internos antes de diseñar.</span>
+                <span data-i18n="en" hidden>We define pages, hierarchy, titles, content, and internal links before designing.</span>
+              </p>
             </div>
           </article>
 
           <article class="process-item">
             <div>
-              <h3>Diseño y desarrollo</h3>
-              <p>Construimos una web visualmente cuidada, rápida, limpia y orientada a conversión.</p>
+              <h3>
+                <span data-i18n="es">Diseño y desarrollo</span>
+                <span data-i18n="en" hidden>Design and development</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Construimos una web visualmente cuidada, rápida, limpia y orientada a conversión.</span>
+                <span data-i18n="en" hidden>We build a visually refined, fast, clean website focused on conversion.</span>
+              </p>
             </div>
           </article>
 
           <article class="process-item">
             <div>
-              <h3>Publicación</h3>
-              <p>Dejamos la web online y preparada para conectar dominio, analítica y nuevas páginas.</p>
+              <h3>
+                <span data-i18n="es">Publicación</span>
+                <span data-i18n="en" hidden>Launch</span>
+              </h3>
+
+              <p>
+                <span data-i18n="es">Dejamos la web online y preparada para conectar dominio, analítica y nuevas páginas.</span>
+                <span data-i18n="en" hidden>We publish the site and prepare it for domain setup, analytics, and new pages.</span>
+              </p>
             </div>
           </article>
         </div>
@@ -834,13 +922,21 @@
       <div class="container">
         <div class="cta-box">
           <div>
-            <h2>Si tu marca necesita ser encontrada, la web tiene que trabajar mejor.</h2>
+            <h2>
+              <span data-i18n="es">Si tu marca necesita ser encontrada, la web tiene que trabajar mejor.</span>
+              <span data-i18n="en" hidden>If your brand needs to be found, your website has to work harder.</span>
+            </h2>
+
             <p>
-              Podemos empezar por una página estratégica y escalar después con nuevas páginas por nicho, servicio o ubicación.
+              <span data-i18n="es">Podemos empezar por una página estratégica y escalar después con nuevas páginas por nicho, servicio o ubicación.</span>
+              <span data-i18n="en" hidden>We can start with one strategic page and then scale with new pages by niche, service, or location.</span>
             </p>
           </div>
 
-          <a href="mailto:hola@rankoradigital.es" class="btn">Escribir a Rankora</a>
+          <a href="mailto:hola@rankoradigital.es" class="btn">
+            <span data-i18n="es">Escribir a Rankora</span>
+            <span data-i18n="en" hidden>Contact Rankora</span>
+          </a>
         </div>
       </div>
     </section>
@@ -849,38 +945,60 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Rankora Digital</span>
-      <span>Webs que posicionan marcas</span>
+      <span>
+        <span data-i18n="es">Webs que posicionan marcas</span>
+        <span data-i18n="en" hidden>Websites that rank brands</span>
+      </span>
     </div>
   </footer>
 
-<script>
-  const buttons = document.querySelectorAll('.lang-switch button');
-  const texts = document.querySelectorAll('[data-lang]');
+  <script>
+    const buttons = document.querySelectorAll('.lang-switch button');
+    const texts = document.querySelectorAll('[data-i18n]');
 
-  function setLang(lang) {
-    // toggle active
-    buttons.forEach(b => b.classList.remove('is-active'));
-    document.querySelector(`.lang-switch button[data-lang="${lang}"]`).classList.add('is-active');
+    function setLang(lang) {
+      const activeButton = document.querySelector(`.lang-switch button[data-lang="${lang}"]`);
 
-    // mostrar / ocultar sin romper layout
-    texts.forEach(el => {
-      el.hidden = el.dataset.lang !== lang;
+      if (!activeButton) return;
+
+      buttons.forEach(button => {
+        button.classList.remove('is-active');
+      });
+
+      activeButton.classList.add('is-active');
+
+      texts.forEach(el => {
+        el.hidden = el.dataset.i18n !== lang;
+      });
+
+      document.documentElement.lang = lang;
+
+      if (lang === 'en') {
+        document.title = 'Rankora — Websites that rank brands';
+        document.querySelector('meta[name="description"]').setAttribute(
+          'content',
+          'We create strategic websites that rank brands on Google and turn visitors into customers. Specialists in specialty coffee shops, wellness, and personal brands.'
+        );
+      } else {
+        document.title = 'Rankora — Webs que posicionan marcas';
+        document.querySelector('meta[name="description"]').setAttribute(
+          'content',
+          'Creamos webs estratégicas que posicionan marcas en Google y convierten visitas en clientes. Especialistas en cafés de especialidad, wellness y marcas personales.'
+        );
+      }
+
+      localStorage.setItem('rankoraLang', lang);
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        setLang(button.dataset.lang);
+      });
     });
 
-    // guardar
-    localStorage.setItem('lang', lang);
-  }
+    const savedLang = localStorage.getItem('rankoraLang') || 'es';
+    setLang(savedLang);
+  </script>
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setLang(btn.dataset.lang);
-    });
-  });
-
-  // idioma inicial
-  const savedLang = localStorage.getItem('lang') || 'es';
-  setLang(savedLang);
-</script>
-  
 </body>
 </html>
