@@ -5,125 +5,871 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Web Design for Specialty Coffee Shops | Rankora</title>
-  <meta name="description" content="We design high-converting websites for specialty coffee shops. Get found on Google, showcase your menu, and turn visitors into real customers in Mallorca, Ibiza, and Menorca." />
+  <meta name="description" content="We design websites for specialty coffee shops focused on attracting customers, showcasing your menu, and improving your visibility on Google in Mallorca, Ibiza, and Menorca." />
 
-  <!-- SEO clave -->
-  <link rel="alternate" hreflang="es" href="https://tudominio.com/web-cafe.html" />
-  <link rel="alternate" hreflang="en" href="https://tudominio.com/en/web-cafe.html" />
-
-  <link rel="canonical" href="https://tudominio.com/en/web-cafe.html" />
+  <link rel="alternate" hreflang="es" href="/web-cafe.html">
+  <link rel="alternate" hreflang="en" href="/en/web-cafe.html">
+  <link rel="alternate" hreflang="x-default" href="/web-cafe.html">
+  <link rel="canonical" href="/en/web-cafe.html">
 
   <style>
-    /* reutilizás EXACTO tu CSS actual */
+    :root {
+      --bg: #11100e;
+      --surface: #191714;
+      --surface-2: #24201b;
+      --text: #f4efe7;
+      --muted: #b8aa99;
+      --line: rgba(244, 239, 231, 0.14);
+      --accent: #d6a15f;
+      --accent-dark: #8f5f35;
+      --radius: 28px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(214, 161, 95, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 35%, rgba(143, 95, 53, 0.22), transparent 28%),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: auto, auto, 80px 80px, 80px 80px;
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(17, 16, 14, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 18px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--text);
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .lang-switch a {
+      opacity: 0.5;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .lang-switch a.is-active {
+      opacity: 1;
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--text);
+      color: #15120f;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn--ghost:hover {
+      background: var(--text);
+      color: #15120f;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 0 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 5.4vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin: 0;
+      max-width: 820px;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.8vw, 22px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 500px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(244, 239, 231, 0.08), rgba(244, 239, 231, 0.02)),
+        var(--surface);
+      overflow: hidden;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border-radius: 22px;
+      border: 1px solid rgba(214, 161, 95, 0.25);
+      pointer-events: none;
+    }
+
+    .coffee-mark {
+      position: absolute;
+      right: -62px;
+      top: -62px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(214, 161, 95, 0.28);
+      pointer-events: none;
+    }
+
+    .coffee-mark::before,
+    .coffee-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(244, 239, 231, 0.12);
+    }
+
+    .coffee-mark::before {
+      inset: 42px;
+    }
+
+    .coffee-mark::after {
+      inset: 86px;
+      background: rgba(214, 161, 95, 0.18);
+    }
+
+    .hero-card__top,
+    .hero-checklist {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card__label {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-card h2 {
+      margin: 0;
+      max-width: 500px;
+      font-size: clamp(30px, 3vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-card__text {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+      max-width: 470px;
+    }
+
+    .hero-checklist {
+      margin-top: 46px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-check {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      min-height: 76px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-check strong {
+      color: var(--text);
+      font-size: 18px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .section {
+      padding: 110px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 48px;
+      margin-bottom: 54px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      margin: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 760px;
+      margin: 24px 0 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 260px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(244, 239, 231, 0.035);
+    }
+
+    .card span {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 42px;
+      font-size: 14px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      line-height: 1.08;
+      margin: 0 0 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      min-height: 520px;
+      padding: 34px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .panel--accent {
+      background: linear-gradient(145deg, #d6a15f, #8f5f35);
+      color: #15120f;
+    }
+
+    .panel--accent p {
+      color: rgba(21, 18, 15, 0.76);
+    }
+
+    .list {
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .list strong {
+      color: var(--text);
+    }
+
+    .process {
+      counter-reset: step;
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .process-item {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-item::before {
+      content: "0" counter(step);
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .process-item h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .process-item p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      background: rgba(244, 239, 231, 0.035);
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .faq p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .cta-section {
+      padding: 120px 0;
+    }
+
+    .cta-box {
+      border-radius: 28px;
+      padding: clamp(32px, 7vw, 76px);
+      background: var(--text);
+      color: #15120f;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      color: #15120f;
+    }
+
+    .cta-box p {
+      color: rgba(21, 18, 15, 0.7);
+      font-size: 20px;
+      max-width: 620px;
+    }
+
+    .cta-box .btn {
+      background: #15120f;
+      color: var(--text);
+      border: 0;
+      width: fit-content;
+      justify-self: start;
+    }
+
+    .contact-form {
+      width: 100%;
+      max-width: 420px;
+      justify-self: end;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(21, 18, 15, 0.18);
+      background: #fffaf2;
+      color: #15120f;
+      font: inherit;
+      font-size: 14px;
+      line-height: 1.3;
+      outline: none;
+    }
+
+    .contact-form input {
+      min-height: 48px;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent-dark);
+    }
+
+    .contact-form .btn {
+      width: fit-content;
+      align-self: flex-start;
+      margin-top: 6px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .process-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .contact-form {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 14vw, 62px);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .hero-card,
+      .panel {
+        padding: 26px;
+      }
+
+      .hero-check,
+      .list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .hero-check strong {
+        text-align: left;
+        white-space: normal;
+      }
+
+      .contact-form .btn {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <header class="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="/" class="logo">Rankora</a>
 
-<header class="header">
-  <nav class="nav container">
-    <a href="/" class="logo">Rankora</a>
+      <div class="nav-links">
+        <a href="#service">Service</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn">Let's talk</a>
 
-    <div class="nav-links">
-      <a href="/web-cafe.html">ES</a>
-      <a href="/en/web-cafe.html"><strong>EN</strong></a>
-      <a href="#contacto" class="btn">Let's talk</a>
-    </div>
-  </nav>
-</header>
-
-<main>
-
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-
-      <p class="eyebrow">Strategic Web Design · Specialty Coffee Shops</p>
-
-      <h1>
-        Websites for specialty coffee shops that bring customers every day.
-      </h1>
-
-      <p class="hero-copy">
-        Built to help people find you on Google, understand your offer in seconds, and decide to visit. Less dependency on Instagram, more real customers in your shop.
-      </p>
-
-      <div class="hero-actions">
-        <a href="mailto:hola@rankoradigital.es" class="btn">
-          I want more customers
-        </a>
-        <a href="#servicio" class="btn btn--ghost">
-          See how it works
-        </a>
-      </div>
-    </div>
-
-    <aside class="hero-card">
-      <div class="hero-card__top">
-        <p class="hero-card__label">Quick audit</p>
-        <h2>3 things we analyze before designing your website.</h2>
-        <p class="hero-card__text">
-          A website doesn't start with design. It starts with understanding how people find you, what they need to see, and what makes them visit.
-        </p>
-      </div>
-
-      <div class="hero-checklist">
-        <div class="hero-check">
-          <span>How people find you</span>
-          <strong>Google + Maps</strong>
-        </div>
-
-        <div class="hero-check">
-          <span>What drives visits</span>
-          <strong>Menu + opening hours</strong>
-        </div>
-
-        <div class="hero-check">
-          <span>How your brand is perceived</span>
-          <strong>Brand + design</strong>
+        <div class="lang-switch" aria-label="Change language">
+          <a href="/web-cafe.html">ES</a>
+          <span>/</span>
+          <a href="/en/web-cafe.html" class="is-active">EN</a>
         </div>
       </div>
-    </aside>
-  </div>
-</section>
+    </nav>
+  </header>
 
-<section class="section" id="servicio">
-  <div class="container">
-    <div class="section-head">
-      <p class="section-label">The problem</p>
-      <div>
-        <h2>Instagram is not enough to build a real digital presence.</h2>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Strategic web design · Specialty coffee shops</p>
 
-        <p class="lead">
-          Many coffee shops rely on Instagram, but lack a proper structure to be found on Google. A website organizes your brand and converts attention into real visits.
-        </p>
+          <h1>We create websites for specialty coffee shops that bring customers every day.</h1>
 
-        <p class="lead">
-          In places like Mallorca, Ibiza, and Menorca, local search drives traffic. If you're not visible, you're losing customers daily.
-        </p>
+          <p class="hero-copy">
+            Built to help people find you on Google, understand your offer in seconds, and decide to visit. Less dependency on Instagram, more real customers in your shop.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn">I want more customers for my café</a>
+            <a href="#service" class="btn btn--ghost">See how it works</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Rankora strategic summary">
+          <div class="coffee-mark"></div>
+
+          <div class="hero-card__top">
+            <p class="hero-card__label">Quick audit</p>
+            <h2>3 points we review before designing your website.</h2>
+            <p class="hero-card__text">
+              A website for coffee shops does not start with visuals. It starts with understanding how people find you, what they need to see, and what makes them decide to visit.
+            </p>
+          </div>
+
+          <div class="hero-checklist">
+            <div class="hero-check">
+              <span>How people find you</span>
+              <strong>Google + Maps</strong>
+            </div>
+
+            <div class="hero-check">
+              <span>What drives the visit</span>
+              <strong>Menu + opening hours</strong>
+            </div>
+
+            <div class="hero-check">
+              <span>How your café is perceived</span>
+              <strong>Brand + design</strong>
+            </div>
+          </div>
+        </aside>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="cta-section" id="contacto">
-  <div class="container">
-    <div class="cta-box">
-      <div>
-        <h2>Your coffee shop already has identity. Now it needs a website that supports it.</h2>
-        <p>
-          Start with a clear, fast and SEO-focused version that brings real customers.
-        </p>
+    <section class="section" id="service">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">The problem</p>
+          <div>
+            <h2>Instagram is not enough to build a real digital presence.</h2>
+            <p class="lead">
+              Many coffee shops have great aesthetics, strong products, and community, but depend on external platforms. A website organizes the brand, improves local search, and turns attention into real visits.
+            </p>
+            <p class="lead">
+              In areas like Mallorca, Ibiza, or Menorca, where tourism and local search define customer flow, a well-structured website can make a real difference.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span>01</span>
+            <h3>You do not appear when people search</h3>
+            <p>If someone searches for specialty coffee nearby, your website can strengthen your visibility on Google.</p>
+          </article>
+
+          <article class="card">
+            <span>02</span>
+            <h3>Your menu is scattered</h3>
+            <p>A clear online menu reduces friction and presents your offer better: coffee, brunch, products, and opening hours.</p>
+          </article>
+
+          <article class="card">
+            <span>03</span>
+            <h3>Your brand does not feel the same online</h3>
+            <p>A carefully designed café needs a digital presence with the same visual quality as the physical space.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <a href="mailto:hola@rankoradigital.es" class="btn">
-        Contact Rankora
-      </a>
+    <section class="section">
+      <div class="container split">
+        <div class="panel">
+          <p class="section-label">The solution</p>
+          <h2>A simple, strategic, and well-positioned website.</h2>
+
+          <ul class="list">
+            <li><strong>Visual design</strong><span>Aligned with your café identity</span></li>
+            <li><strong>Local SEO</strong><span>Structure built for searches in the Balearic Islands</span></li>
+            <li><strong>Online menu</strong><span>Clear, accessible, and easy to browse</span></li>
+            <li><strong>Fast contact</strong><span>Location, opening hours, WhatsApp, and bookings</span></li>
+          </ul>
+        </div>
+
+        <div class="panel panel--accent">
+          <p class="section-label" style="color:#15120f;">Result</p>
+          <h2>A website that works even when your shop is closed.</h2>
+          <p>
+            The goal is not just to “have a website”. It is to build your own entry point so new customers understand your offer, find your location, and decide to visit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">Process</p>
+          <div>
+            <h2>From idea to published website without making it complicated.</h2>
+            <p class="lead">
+              We work with a short, clear process focused on launching a solid first version.
+            </p>
+          </div>
+        </div>
+
+        <div class="process">
+          <article class="process-item">
+            <div>
+              <h3>Diagnosis</h3>
+              <p>We review your brand, your menu, your location, and how your customers search for you.</p>
+            </div>
+          </article>
+
+          <article class="process-item">
+            <div>
+              <h3>SEO structure</h3>
+              <p>We define sections, keywords, and hierarchy so the website makes sense for Google and for your business.</p>
+            </div>
+          </article>
+
+          <article class="process-item">
+            <div>
+              <h3>Design and launch</h3>
+              <p>We design, develop, and publish the site with a fast, clean, and scalable foundation.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label">FAQ</p>
+          <div>
+            <h2>Frequently asked questions</h2>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>How long does a website for a specialty coffee shop take?</summary>
+            <p>A first version can be ready in 7 to 14 days, depending on the content, photos, menu, and number of sections.</p>
+          </details>
+
+          <details>
+            <summary>Can the website help me appear on Google?</summary>
+            <p>Yes. The structure is prepared with local SEO: titles, content, speed, hierarchy, and geographic focus in the Balearic Islands.</p>
+          </details>
+
+          <details>
+            <summary>Do I need professional photos?</summary>
+            <p>Not necessarily, but they help a lot. If you do not have them yet, we can start with a clean visual direction and improve the imagery later.</p>
+          </details>
+
+          <details>
+            <summary>Can I show my menu online?</summary>
+            <p>Yes. We can include your menu, opening hours, location, WhatsApp, bookings, featured products, and social links.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Your café already has identity. Now it needs a website that supports it.</h2>
+            <p>
+              If you run a specialty coffee shop and want to improve your digital presence, we can start with a clear, fast, and well-positioned first version.
+            </p>
+          </div>
+
+          <form class="contact-form" action="https://formspree.io/f/xwvaggkk" method="POST">
+            <input type="hidden" name="_subject" value="New Rankora lead - Coffee">
+
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Tell us about your café" required></textarea>
+
+            <button type="submit" class="btn">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Rankora Digital</span>
+      <span>Websites that rank brands</span>
     </div>
-  </div>
-</section>
-
-</main>
-
+  </footer>
 </body>
 </html>
