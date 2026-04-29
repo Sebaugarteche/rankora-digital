@@ -171,6 +171,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+      perspective: 1000px;
 }
 
 .hero-mockup__image {
@@ -178,6 +179,35 @@
   max-width: 620px;
   height: auto;
   display: block;
+}
+
+    .hero-mockup__image {
+  width: 120%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transform: rotateY(-90deg) scale(0.92);
+  transform-origin: center;
+  animation: laptopIntro 1.2s ease-out 0.25s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes laptopIntro {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) scale(0.92);
+  }
+
+  65% {
+    opacity: 1;
+    transform: rotateY(12deg) scale(1.03);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
 }
 
     .hero-mockup {
