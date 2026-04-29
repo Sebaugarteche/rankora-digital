@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <title>Diseño web para cafés de especialidad | Rankora</title>
   <meta name="description" content="Creamos páginas web para cafés de especialidad enfocadas en atraer clientes, mostrar tu carta y posicionarte en Google. Especialistas en cafés de especialidad en Mallorca, Ibiza y Menorca." />
 
+<link rel="alternate" hreflang="es" href="/web-cafe.html">
+<link rel="alternate" hreflang="en" href="/en/web-cafe.html">
+<link rel="alternate" hreflang="x-default" href="/web-cafe.html">
+  
   <style>
     :root {
       --bg: #11100e;
@@ -96,6 +100,24 @@
     .nav-links a:hover {
       color: var(--text);
     }
+
+    .lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.lang-switch a {
+  opacity: 0.5;
+}
+
+.lang-switch a.is-active {
+  opacity: 1;
+  color: var(--text);
+}
 
     .btn {
       display: inline-flex;
@@ -484,6 +506,50 @@
       gap: 20px;
     }
 
+    .contact-form {
+  width: 100%;
+  max-width: 420px;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(21, 18, 15, 0.18);
+  background: #fffaf2;
+  color: #15120f;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.3;
+  outline: none;
+}
+
+.contact-form input {
+  min-height: 48px;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-dark);
+}
+
+.contact-form .btn {
+  width: fit-content;
+  align-self: flex-start;
+  margin-top: 6px;
+  border-radius: 10px;
+}
+
     @media (max-width: 900px) {
       .nav-links {
         display: none;
@@ -562,18 +628,25 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="nav container" aria-label="Navegación principal">
-      <a href="/" class="logo">Rankora</a>
+<header class="header">
+  <nav class="nav container" aria-label="Navegación principal">
+    <a href="/" class="logo">Rankora</a>
 
-      <div class="nav-links">
-        <a href="#servicio">Servicio</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto" class="btn">Hablemos</a>
+    <div class="nav-links">
+      <a href="#servicio">Servicio</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#faq">FAQ</a>
+
+      <div class="lang-switch" aria-label="Cambiar idioma">
+        <a href="/web-cafe.html" class="is-active">ES</a>
+        <span>/</span>
+        <a href="/en/web-cafe.html">EN</a>
       </div>
-    </nav>
-  </header>
+
+      <a href="#contacto" class="btn">Hablemos</a>
+    </div>
+  </nav>
+</header>
 
   <main>
     <section class="hero">
@@ -588,7 +661,15 @@
           </p>
 
           <div class="hero-actions">
-            <a href="mailto:hola@rankoradigital.es" class="btn">Quiero más clientes para mi café</a>
+            <form class="contact-form" action="https://formspree.io/f/xwvaggkk" method="POST">
+  <input type="hidden" name="_subject" value="Nuevo lead Rankora - Café">
+
+  <input type="text" name="name" placeholder="Nombre" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Contame sobre tu café" required></textarea>
+
+  <button type="submit" class="btn">Enviar mensaje</button>
+</form>
             <a href="#servicio" class="btn btn--ghost">Ver cómo funciona</a>
           </div>
         </div>
@@ -765,7 +846,7 @@
             </p>
           </div>
 
-          <a href="mailto:hola@rankoradigital.es" class="btn">Escribir a Rankora</a>
+          <a href="#contacto" class="btn">Quiero más clientes para mi café</a>
         </div>
       </div>
     </section>
