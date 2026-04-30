@@ -473,17 +473,20 @@
 }
 
 
-.rk-marquee__group span {
-  display: inline-block;
-  font-size: 15px;
-  line-height: 1;
-  font-weight: 500;
+.rk-marquee__track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
 }
 
-.rk-marquee__group span::after {
+.rk-marquee__track span::after {
   content: "✦";
-  margin-left: 28px;
   opacity: 0.7;
+}
+
+/* 🔥 clave: no poner estrella en el último de cada grupo */
+.rk-marquee__group span:last-child::after {
+  content: "";
 }
 
 @keyframes rkMarquee {
