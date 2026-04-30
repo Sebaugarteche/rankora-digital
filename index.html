@@ -488,10 +488,8 @@
     activeButton.classList.add('is-active');
 
     texts.forEach(el => {
-  if (el.dataset.i18n) {
-    el.style.display = el.dataset.i18n === lang ? '' : 'none';
-  }
-});
+      el.hidden = el.dataset.i18n !== lang;
+    });
 
     placeholders.forEach(field => {
       field.placeholder = lang === 'es'
