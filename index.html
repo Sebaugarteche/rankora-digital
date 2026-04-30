@@ -12,20 +12,10 @@
 
 <body>
 
-  <div class="rk-marquee">
-    <div class="rk-marquee__track">
-      <span data-i18n="es">Rankora Digital</span>
-      <span data-i18n="en" hidden>Rankora Digital</span>
+  <div class="rk-marquee" aria-hidden="true">
+  <div class="rk-marquee__track">
 
-      <span data-i18n="es">SEO para negocios locales</span>
-      <span data-i18n="en" hidden>SEO for local businesses</span>
-
-      <span data-i18n="es">Webs que convierten</span>
-      <span data-i18n="en" hidden>Websites that convert</span>
-
-      <span data-i18n="es">Crecé en Google</span>
-      <span data-i18n="en" hidden>Grow on Google</span>
-
+    <div class="rk-marquee__group">
       <span data-i18n="es">Rankora Digital</span>
       <span data-i18n="en" hidden>Rankora Digital</span>
 
@@ -38,7 +28,23 @@
       <span data-i18n="es">Crecé en Google</span>
       <span data-i18n="en" hidden>Grow on Google</span>
     </div>
+
+    <div class="rk-marquee__group">
+      <span data-i18n="es">Rankora Digital</span>
+      <span data-i18n="en" hidden>Rankora Digital</span>
+
+      <span data-i18n="es">SEO para negocios locales</span>
+      <span data-i18n="en" hidden>SEO for local businesses</span>
+
+      <span data-i18n="es">Webs que convierten</span>
+      <span data-i18n="en" hidden>Websites that convert</span>
+
+      <span data-i18n="es">Crecé en Google</span>
+      <span data-i18n="en" hidden>Grow on Google</span>
+    </div>
+
   </div>
+</div>
 
   <header class="header">
     <nav class="nav container" aria-label="Navegación principal">
@@ -454,8 +460,10 @@
     activeButton.classList.add('is-active');
 
     texts.forEach(el => {
-      el.hidden = el.dataset.i18n !== lang;
-    });
+  if (el.dataset.i18n) {
+    el.style.display = el.dataset.i18n === lang ? '' : 'none';
+  }
+});
 
     placeholders.forEach(field => {
       field.placeholder = lang === 'es'
