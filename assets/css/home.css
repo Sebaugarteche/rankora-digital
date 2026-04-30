@@ -444,7 +444,7 @@
       gap: 20px;
     }
 
-    .rk-marquee {
+ .rk-marquee {
   width: 100%;
   overflow: hidden;
   background: #f5edc8;
@@ -456,7 +456,7 @@
 .rk-marquee__track {
   display: flex;
   width: max-content;
-  animation: rkMarquee 22s linear infinite;
+  animation: rkMarquee 24s linear infinite;
 }
 
 .rk-marquee:hover .rk-marquee__track {
@@ -466,8 +466,11 @@
 .rk-marquee__group {
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding: 12px 16px 12px 0;
+  justify-content: space-around;
+  gap: 40px;
+  min-width: 100vw;
+  padding: 12px 0;
+  flex-shrink: 0;
 }
 
 .rk-marquee__group span {
@@ -479,7 +482,7 @@
 
 .rk-marquee__group span::after {
   content: "✦";
-  margin-left: 32px;
+  margin-left: 40px;
   opacity: 0.7;
 }
 
