@@ -106,13 +106,19 @@ a {
   --mouse-y: 50%;
 
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: var(--dark);
+  background:
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.34), transparent 34%),
+    radial-gradient(circle at 18% 28%, rgba(185, 120, 54, 0.16), transparent 30%),
+    radial-gradient(circle at 82% 72%, rgba(99, 102, 241, 0.24), transparent 34%),
+    #020617;
+  background-size: 130% 130%;
+  animation: heroGradientMove 28s ease-in-out infinite alternate;
 }
 
 .hero-centered {
@@ -154,36 +160,32 @@ a {
   pointer-events: none;
 }
 
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  width: 140%;
-  height: 140%;
-  top: -20%;
-  left: -20%;
-  background: radial-gradient(
-    circle at var(--mouse-x) var(--mouse-y),
-    rgba(59, 130, 246, 0.34),
-    transparent 58%
-  );
-  filter: blur(100px);
-  animation: glowMove 24s ease-in-out infinite alternate;
-}
-
+.hero-bg::before,
 .hero-bg::after {
   content: "";
   position: absolute;
-  width: 120%;
-  height: 120%;
-  top: -10%;
-  left: -10%;
-  background: radial-gradient(
-    circle at var(--mouse-x) var(--mouse-y),
-    rgba(185, 120, 54, 0.18),
-    transparent 52%
-  );
-  filter: blur(120px);
-  animation: glowMove2 30s ease-in-out infinite alternate;
+  border-radius: 999px;
+  filter: blur(100px);
+  opacity: 0.6;
+  will-change: transform;
+}
+
+.hero-bg::before {
+  width: 560px;
+  height: 560px;
+  top: 12%;
+  left: 8%;
+  background: rgba(59, 130, 246, 0.28);
+  animation: glowMove 22s ease-in-out infinite alternate;
+}
+
+.hero-bg::after {
+  width: 500px;
+  height: 500px;
+  right: 8%;
+  bottom: 10%;
+  background: rgba(185, 120, 54, 0.16);
+  animation: glowMove2 28s ease-in-out infinite alternate;
 }
 
 /* TEXTURA */
@@ -202,54 +204,46 @@ a {
 
 /* ANIMACIONES */
 
-@keyframes glowMove {
+@keyframes heroGradientMove {
   0% {
-    transform: translate(-4%, -3%) scale(1);
+    background-position: 0% 40%;
   }
 
   50% {
-    transform: translate(4%, 3%) scale(1.12);
+    background-position: 70% 55%;
   }
 
   100% {
-    transform: translate(8%, 6%) scale(1.22);
+    background-position: 100% 65%;
+  }
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(18vw, 10vh) scale(1.2);
   }
 }
 
 @keyframes glowMove2 {
   0% {
-    transform: translate(4%, 3%) scale(1);
-  }
-
-  50% {
-    transform: translate(-4%, -2%) scale(1.15);
+    transform: translate(0, 0) scale(1);
   }
 
   100% {
-    transform: translate(-8%, -5%) scale(1.28);
+    transform: translate(-14vw, -8vh) scale(1.18);
   }
 }
 
 @keyframes grainMove {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  25% {
-    transform: translate(-5%, 5%);
-  }
-
-  50% {
-    transform: translate(5%, -5%);
-  }
-
-  75% {
-    transform: translate(-3%, 3%);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5%, 5%); }
+  50% { transform: translate(5%, -5%); }
+  75% { transform: translate(-3%, 3%); }
+  100% { transform: translate(0, 0); }
 }
 
     .section {
