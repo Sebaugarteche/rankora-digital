@@ -548,7 +548,7 @@ a {
 .rk-marquee__track {
   display: flex;
   width: max-content;
-  animation: rkMarquee 30s linear infinite;
+  animation: rkMarquee 60s linear infinite;
 }
 
 /* pausa en hover */
