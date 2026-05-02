@@ -163,12 +163,12 @@ a {
   top: -20%;
   left: -20%;
   background: radial-gradient(
-    circle,
-    rgba(59,130,246,0.25),
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.28),
     transparent 60%
   );
   filter: blur(100px);
-  animation: glowMove 14s ease-in-out infinite alternate;
+  animation: glowMove 18s ease-in-out infinite alternate;
 }
 
 /* glow secundario */
@@ -181,12 +181,12 @@ a {
   top: -10%;
   left: -10%;
   background: radial-gradient(
-    circle,
-    rgba(99,102,241,0.18),
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.18),
     transparent 60%
   );
   filter: blur(120px);
-  animation: glowMove2 20s ease-in-out infinite alternate;
+  animation: glowMove2 24s ease-in-out infinite alternate;
 }
 
 /* animaciones */
