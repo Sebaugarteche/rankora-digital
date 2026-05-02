@@ -514,25 +514,49 @@ a {
       gap: 20px;
     }
 
- .rk-marquee {
+.rk-marquee {
   width: 100%;
   overflow: hidden;
-  background: #f5edc8;
-  color: #11100e;
-  border-bottom: 1px solid rgba(17, 16, 14, 0.12);
+  background: linear-gradient(
+    90deg,
+    #020617 0%,
+    #0f172a 40%,
+    #1e1b4b 100%
+  );
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   white-space: nowrap;
+  position: relative;
 }
 
+/* glow sutil (clave para integrarlo con el hero) */
+.rk-marquee::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(59, 130, 246, 0.25),
+    transparent 60%
+  );
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* track animado */
 .rk-marquee__track {
   display: flex;
   width: max-content;
   animation: rkMarquee 30s linear infinite;
 }
 
+/* pausa en hover */
 .rk-marquee:hover .rk-marquee__track {
   animation-play-state: paused;
 }
 
+/* grupo */
 .rk-marquee__group {
   display: flex;
   align-items: center;
@@ -542,28 +566,32 @@ a {
   flex-shrink: 0;
 }
 
-
+/* textos */
 .rk-marquee__track span {
   display: inline-flex;
   align-items: center;
   gap: 32px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
+/* separador */
 .rk-marquee__track span::after {
   content: "✦";
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
-/* 🔥 clave: no poner estrella en el último de cada grupo */
+/* sin estrella al final */
 .rk-marquee__group span:last-child::after {
   content: "";
 }
 
+/* animación */
 @keyframes rkMarquee {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
