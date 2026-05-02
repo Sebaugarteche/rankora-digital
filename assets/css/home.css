@@ -270,6 +270,27 @@ a {
   100% { transform: translate(0, 0); }
 }
 
+.hero {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+.hero-bg::before {
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(59, 130, 246, 0.34),
+    transparent 58%
+  );
+}
+
+.hero-bg::after {
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(185, 120, 54, 0.18),
+    transparent 52%
+  );
+}
+
     .section {
       padding: 110px 0;
       border-top: 1px solid var(--line);
