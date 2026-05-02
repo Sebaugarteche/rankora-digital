@@ -180,7 +180,7 @@ a {
   );
 
   filter: blur(80px);
-  animation: orbOne 18s ease-in-out infinite alternate;
+  animation: orbOne 10s ease-in-out infinite alternate;
 }
 
 /* ORB 2 */
@@ -202,7 +202,7 @@ a {
   );
 
   filter: blur(90px);
-  animation: orbTwo 22s ease-in-out infinite alternate;
+  animation: orbTwo 12s ease-in-out infinite alternate;
 }
 
 /* TEXTURA */
