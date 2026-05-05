@@ -548,6 +548,12 @@ h2 {
   font-weight: 800;
 }
 
+.niche-card h3 {
+  min-height: 72px;
+  display: flex;
+  align-items: flex-end;
+}
+
 .niche-card--restauracion::before {
   background-image: url("/assets/img/industrias/Restauracion.jpg");
 }
