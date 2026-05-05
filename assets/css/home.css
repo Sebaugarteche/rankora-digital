@@ -407,6 +407,7 @@ a {
     transform: translate(8vw, 4vh) scale(1);
   }
 }
+
 /* =========================================================
    07. COMMON SECTIONS
    ========================================================= */
@@ -432,10 +433,10 @@ a {
   font-weight: 700;
 }
 
-.section h1 {
+.intro-content h2 {
   font-size: clamp(36px, 4vw, 64px);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
 h2 {
