@@ -486,14 +486,23 @@ h2 {
 }
 
 /* =========================================================
-   IMAGE VERSION (SOLUCIÓN ROBUSTA)
+   IMAGE VERSION (FIX REAL)
    ========================================================= */
 
 .niche-card--image {
   background: #020617;
+  padding: 0; /* ← CLAVE */
 }
 
-/* IMAGEN REAL */
+/* wrapper de contenido */
+.niche-card--image > span,
+.niche-card--image > div {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+}
+
+/* IMAGEN */
 .niche-card__image {
   position: absolute;
   inset: 0;
@@ -501,7 +510,6 @@ h2 {
   height: 100%;
   object-fit: cover;
 
-  /* fuerza visual */
   filter: saturate(1.25) contrast(1.1) brightness(0.85);
 
   transform: scale(1.05);
@@ -512,7 +520,7 @@ h2 {
   z-index: 0;
 }
 
-/* OVERLAY PARA LEGIBILIDAD */
+/* OVERLAY */
 .niche-card--image::after {
   content: "";
   position: absolute;
