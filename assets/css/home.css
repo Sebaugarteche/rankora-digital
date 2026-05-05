@@ -570,7 +570,7 @@ h2 {
   counter-reset: step;
   display: grid;
   gap: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .process-item {
@@ -579,7 +579,27 @@ h2 {
   grid-template-columns: 120px 1fr;
   gap: 32px;
   padding: 34px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+   position: relative;
+}
+
+/* línea glow muy sutil */
+.process-item::after {
+  content: "";
+  position: absolute;
+  left: 120px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(169, 129, 255, 0.35),
+    transparent
+  );
+
+  opacity: 0.5;
 }
 
 .process-item::before {
