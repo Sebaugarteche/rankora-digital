@@ -433,12 +433,6 @@ a {
   font-weight: 700;
 }
 
-.intro-content h2 {
-  font-size: clamp(36px, 4vw, 64px);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-}
-
 h2 {
   margin: 0;
   color: var(--text);
@@ -473,15 +467,16 @@ h2 {
 }
 
 .intro-content {
-  max-width: 900px;
+  max-width: 860px;
 }
 
 .intro-content h2 {
-  max-width: 980px;
+  max-width: 860px;
+  margin: 0;
   color: #ffffff;
-  font-size: clamp(42px, 5.6vw, 84px);
-  line-height: 0.98;
-  letter-spacing: -0.06em;
+  font-size: clamp(36px, 4vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
 .intro-content p {
