@@ -488,7 +488,6 @@ h2 {
   inset: 0;
   z-index: 0;
 
-  background-image: var(--bg-img);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -547,6 +546,22 @@ h2 {
   margin-top: 28px;
   color: var(--primary-200);
   font-weight: 800;
+}
+
+.niche-card--restauracion::before {
+  background-image: url("/assets/img/industrias/Restauracion.jpg");
+}
+
+.niche-card--real-estate::before {
+  background-image: url("/assets/img/industrias/Inmobiliaria.jpg");
+}
+
+.niche-card--fitness::before {
+  background-image: url("/assets/img/industrias/Fitness.jpg");
+}
+
+.niche-card--turismo::before {
+  background-image: url("/assets/img/industrias/Turismo-2.jpg");
 }
 
 /* =========================================================
