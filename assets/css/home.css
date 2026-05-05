@@ -567,7 +567,7 @@ a {
   }
 }
 
-    .contact-form {
+ .contact-form {
   width: 100%;
   max-width: 420px;
   justify-self: end;
@@ -582,9 +582,9 @@ a {
   width: 100%;
   padding: 15px 16px;
   border-radius: 8px;
-  border: 1px solid rgba(244, 239, 231, 0.18);
-  background: var(--surface);
-  color: var(--dark);
+  border: 1px solid rgba(208, 188, 252, 0.22);
+  background: #ffffff;
+  color: #020617;
   font: inherit;
   font-size: 14px;
   line-height: 1.3;
@@ -592,32 +592,41 @@ a {
 }
 
 .contact-form input:not([type="checkbox"]) {
-  min-height: 48px;
+  min-height: 52px;
 }
 
 .contact-form textarea {
-  min-height: 120px;
+  min-height: 130px;
   resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(2, 6, 23, 0.55);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--accent);
+  border-color: var(--primary-300);
+  box-shadow: 0 0 0 3px rgba(169, 129, 255, 0.18);
 }
-
 
 .contact-form .btn {
   width: fit-content;
-  margin-top: 6px;
-  border-radius: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  background: var(--primary-500);
+  color: #ffffff;
+  border: 1px solid var(--primary-500);
+  padding: 0 20px;
 }
 
-.cta-box h2 [data-i18n="es"] {
-  font-size: clamp(42px, 4.4vw, 72px);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
+.contact-form .btn:hover {
+  background: var(--primary-400);
+  border-color: var(--primary-400);
 }
 
+.cta-box h2 [data-i18n="es"],
 .cta-box h2 [data-i18n="en"] {
   font-size: clamp(42px, 4.4vw, 72px);
   line-height: 0.95;
