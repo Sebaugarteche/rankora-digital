@@ -568,14 +568,51 @@ h2 {
 }
 
 .cta-box {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
   gap: 48px;
+
   padding: clamp(32px, 6vw, 72px);
-  border-radius: 20px;
+  border-radius: 24px;
   background: #020617;
   color: #ffffff;
+}
+
+/* animated border around full block */
+.cta-box::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: -2;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 70deg,
+    var(--primary-500) 110deg,
+    var(--primary-300) 145deg,
+    #38bdf8 175deg,
+    transparent 225deg,
+    transparent 360deg
+  );
+
+  animation: ctaBorderSpin 12s linear infinite;
+}
+
+/* inner mask */
+.cta-box::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+
+  border-radius: 22px;
+  background: #020617;
 }
 
 .cta-box h2,
@@ -598,7 +635,6 @@ h2 {
 }
 
 .contact-form {
-  position: relative;
   width: 100%;
   max-width: 420px;
   justify-self: end;
@@ -606,43 +642,6 @@ h2 {
   flex-direction: column;
   gap: 14px;
   justify-content: center;
-  padding: 24px;
-  border-radius: 18px;
-  overflow: hidden;
-  isolation: isolate;
-  background: #020617;
-}
-
-.contact-form::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    var(--primary-500),
-    var(--primary-300),
-    #38bdf8,
-    var(--primary-400),
-    var(--primary-500)
-  );
-  animation: contactBorderSpin 6s linear infinite;
-}
-
-.contact-form::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  z-index: -1;
-  border-radius: 16px;
-  background: #020617;
-}
-
-@keyframes contactBorderSpin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .contact-form input:not([type="checkbox"]),
@@ -729,6 +728,12 @@ h2 {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+@keyframes ctaBorderSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* =========================================================
