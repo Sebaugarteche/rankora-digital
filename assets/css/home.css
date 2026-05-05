@@ -443,7 +443,7 @@ h2 {
 
 
 /* =========================================================
-   08. INDUSTRIES / NICHE CARDS
+   08. INDUSTRIES / NICHE CARDS (FIX FINAL)
    ========================================================= */
 
 .niche-grid {
@@ -453,7 +453,7 @@ h2 {
 }
 
 /* =========================================================
-   BASE CARD
+   BASE CARD (NO TOCAR ESTRUCTURA)
    ========================================================= */
 
 .niche-card {
@@ -486,23 +486,14 @@ h2 {
 }
 
 /* =========================================================
-   IMAGE VERSION (FIX REAL)
+   IMAGE MODE (SIN ROMPER LAYOUT)
    ========================================================= */
 
 .niche-card--image {
   background: #020617;
-  padding: 0; /* ← CLAVE */
 }
 
-/* wrapper de contenido */
-.niche-card--image > span,
-.niche-card--image > div {
-  position: relative;
-  z-index: 2;
-  padding: 28px;
-}
-
-/* IMAGEN */
+/* imagen como fondo REAL */
 .niche-card__image {
   position: absolute;
   inset: 0;
@@ -520,7 +511,7 @@ h2 {
   z-index: 0;
 }
 
-/* OVERLAY */
+/* overlay */
 .niche-card--image::after {
   content: "";
   position: absolute;
@@ -529,13 +520,13 @@ h2 {
 
   background: linear-gradient(
     180deg,
-    rgba(2, 6, 23, 0.15) 0%,
-    rgba(2, 6, 23, 0.45) 45%,
-    rgba(2, 6, 23, 0.9) 100%
+    rgba(2, 6, 23, 0.2) 0%,
+    rgba(2, 6, 23, 0.5) 50%,
+    rgba(2, 6, 23, 0.92) 100%
   );
 }
 
-/* HOVER */
+/* hover */
 .niche-card--image:hover .niche-card__image {
   transform: scale(1.1);
   filter: saturate(1.4) contrast(1.15) brightness(0.95);
