@@ -452,7 +452,10 @@ h2 {
   gap: 18px;
 }
 
-/* BASE CARD */
+/* =========================================================
+   BASE CARD
+   ========================================================= */
+
 .niche-card {
   position: relative;
   min-height: 360px;
@@ -483,23 +486,22 @@ h2 {
 }
 
 /* =========================================================
-   IMAGE BACKGROUND VERSION
+   IMAGE VERSION (SOLUCIÓN ROBUSTA)
    ========================================================= */
 
-.niche-card--bg {
+.niche-card--image {
   background: #020617;
 }
 
-/* IMAGEN */
-.niche-card--bg::before {
-  content: "";
+/* IMAGEN REAL */
+.niche-card__image {
   position: absolute;
   inset: 0;
-  background-image: var(--bg-img);
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 
-  /* MÁS FUERZA VISUAL */
+  /* fuerza visual */
   filter: saturate(1.25) contrast(1.1) brightness(0.85);
 
   transform: scale(1.05);
@@ -510,11 +512,12 @@ h2 {
   z-index: 0;
 }
 
-/* OVERLAY (menos pesado + mejor degradado) */
-.niche-card--bg::after {
+/* OVERLAY PARA LEGIBILIDAD */
+.niche-card--image::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
 
   background: linear-gradient(
     180deg,
@@ -522,17 +525,15 @@ h2 {
     rgba(2, 6, 23, 0.45) 45%,
     rgba(2, 6, 23, 0.9) 100%
   );
-
-  z-index: 1;
 }
 
-/* HOVER MÁS PREMIUM */
-.niche-card--bg:hover::before {
+/* HOVER */
+.niche-card--image:hover .niche-card__image {
   transform: scale(1.1);
   filter: saturate(1.4) contrast(1.15) brightness(0.95);
 }
 
-.niche-card--bg:hover {
+.niche-card--image:hover {
   border-color: rgba(169, 129, 255, 0.5);
 }
 
