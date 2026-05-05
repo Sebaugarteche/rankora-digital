@@ -349,6 +349,8 @@ a {
   font-size: clamp(52px, 7vw, 96px);
   line-height: 1.05;
   letter-spacing: -0.04em;
+   max-width: 900px;
+  text-wrap: balance;
 }
 
 .hero-copy {
