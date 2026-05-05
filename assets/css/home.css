@@ -583,37 +583,60 @@ h2 {
   color: #ffffff;
 }
 
-/* animated border around full block */
+/* BORDE CONTINUO (flow) */
 .cta-box::before {
   content: "";
   position: absolute;
-  inset: -50%;
+  inset: -2px;
   z-index: -2;
+  border-radius: inherit;
 
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 70deg,
-    var(--primary-500) 110deg,
-    var(--primary-300) 145deg,
-    #38bdf8 175deg,
-    transparent 225deg,
-    transparent 360deg
+  background: linear-gradient(
+    120deg,
+    var(--primary-500),
+    var(--primary-300),
+    #38bdf8,
+    var(--primary-400),
+    var(--primary-500)
   );
 
-  animation: ctaBorderSpin 12s linear infinite;
+  background-size: 300% 300%;
+  animation: ctaBorderFlow 6s linear infinite;
 }
 
-/* inner mask */
+/* MÁSCARA + GLOW INTERIOR */
 .cta-box::after {
   content: "";
   position: absolute;
   inset: 2px;
   z-index: -1;
+  border-radius: calc(24px - 2px);
 
-  border-radius: 22px;
-  background: #020617;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(167, 139, 250, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(56, 189, 248, 0.12),
+      transparent 45%
+    ),
+    #020617;
 }
+
+/* ANIMACIÓN BORDE */
+@keyframes ctaBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* TEXTOS */
 
 .cta-box h2,
 .cta-box h2 span {
@@ -634,6 +657,8 @@ h2 {
   font-size: 20px;
 }
 
+/* FORM */
+
 .contact-form {
   width: 100%;
   max-width: 420px;
@@ -643,6 +668,8 @@ h2 {
   gap: 14px;
   justify-content: center;
 }
+
+/* INPUTS */
 
 .contact-form input:not([type="checkbox"]),
 .contact-form textarea {
@@ -678,6 +705,8 @@ h2 {
   box-shadow: 0 0 0 3px rgba(169, 129, 255, 0.18);
 }
 
+/* BUTTON */
+
 .contact-form .btn {
   width: fit-content;
   min-height: 42px;
@@ -687,6 +716,7 @@ h2 {
   background: var(--primary-400);
   color: #ffffff;
   border: 1px solid var(--primary-400);
+  transition: all 0.25s ease;
 }
 
 .contact-form .btn:hover {
@@ -694,6 +724,8 @@ h2 {
   border-color: var(--primary-300);
   color: #020617;
 }
+
+/* LEGAL */
 
 .form-legal {
   display: grid;
@@ -728,12 +760,6 @@ h2 {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
-}
-
-@keyframes ctaBorderSpin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* =========================================================
