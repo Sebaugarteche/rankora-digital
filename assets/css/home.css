@@ -443,7 +443,7 @@ h2 {
 
 
 /* =========================================================
-   08. INDUSTRIES / NICHE CARDS (FIX FINAL)
+   08. INDUSTRIES / NICHE CARDS
    ========================================================= */
 
 .niche-grid {
@@ -451,10 +451,6 @@ h2 {
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
-
-/* =========================================================
-   BASE CARD (NO TOCAR ESTRUCTURA)
-   ========================================================= */
 
 .niche-card {
   position: relative;
@@ -471,7 +467,14 @@ h2 {
   transition:
     transform 0.22s ease,
     border-color 0.22s ease,
-    box-shadow 0.22s ease;
+    box-shadow 0.22s ease,
+    background-size 0.6s ease;
+}
+
+.niche-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(169, 129, 255, 0.5);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
 .niche-card > * {
@@ -479,69 +482,30 @@ h2 {
   z-index: 2;
 }
 
-.niche-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(208, 188, 252, 0.34);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+/* IMAGE CARD — estable, sin pseudo-elementos */
+.niche-card--bg {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.18) 0%,
+      rgba(2, 6, 23, 0.48) 45%,
+      rgba(2, 6, 23, 0.92) 100%
+    ),
+    var(--bg-img);
+
+  background-size: 100%, cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
 }
 
-/* =========================================================
-   IMAGE MODE (SIN ROMPER LAYOUT)
-   ========================================================= */
-
-.niche-card--image {
-  background: #020617;
+.niche-card--bg:hover {
+  background-size: 100%, 108%;
 }
 
-/* imagen como fondo REAL */
-.niche-card__image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  filter: saturate(1.25) contrast(1.1) brightness(0.85);
-
-  transform: scale(1.05);
-  transition:
-    transform 0.6s ease,
-    filter 0.6s ease;
-
-  z-index: 0;
-}
-
-/* overlay */
-.niche-card--image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background: linear-gradient(
-    180deg,
-    rgba(2, 6, 23, 0.2) 0%,
-    rgba(2, 6, 23, 0.5) 50%,
-    rgba(2, 6, 23, 0.92) 100%
-  );
-}
-
-/* hover */
-.niche-card--image:hover .niche-card__image {
-  transform: scale(1.1);
-  filter: saturate(1.4) contrast(1.15) brightness(0.95);
-}
-
-.niche-card--image:hover {
-  border-color: rgba(169, 129, 255, 0.5);
-}
-
-/* =========================================================
-   TEXT
-   ========================================================= */
+/* TEXT */
 
 .niche-card span {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 14px;
   font-weight: 800;
 }
@@ -556,7 +520,7 @@ h2 {
 
 .niche-card p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .niche-card small {
