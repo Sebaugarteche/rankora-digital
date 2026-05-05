@@ -441,6 +441,7 @@ h2 {
   font-size: 20px;
 }
 
+
 /* =========================================================
    08. INDUSTRIES / NICHE CARDS
    ========================================================= */
@@ -451,7 +452,9 @@ h2 {
   gap: 18px;
 }
 
+/* BASE CARD */
 .niche-card {
+  position: relative;
   min-height: 360px;
   padding: 28px;
   border: 1px solid rgba(208, 188, 252, 0.14);
@@ -461,75 +464,16 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  position: relative;
+
   transition:
     transform 0.22s ease,
     border-color 0.22s ease,
     box-shadow 0.22s ease;
 }
 
-.niche-card--bg {
-  position: relative;
-  overflow: hidden;
-  background: #020617;
-}
-
-/* imagen */
-.niche-card--bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--bg-img);
-  background-size: cover;
-  background-position: center;
-  filter: saturate(0.9) contrast(1.05);
-  transform: scale(1.05);
-  transition: transform 0.6s ease;
-  z-index: 0;
-}
-
-/* overlay oscuro para legibilidad */
-.niche-card--bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 6, 23, 0.2) 0%,
-    rgba(2, 6, 23, 0.7) 60%,
-    rgba(2, 6, 23, 0.95) 100%
-  );
-  z-index: 1;
-}
-
-/* contenido arriba */
-.niche-card--bg > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* hover */
-.niche-card--bg:hover::before {
-  transform: scale(1.1);
-}
-
-/* opcional: leve glow por industria */
-.niche-card--bg:hover {
-  border-color: rgba(169, 129, 255, 0.5);
-}
-
-.niche-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.72;
-  z-index: 0;
-  transition: opacity 0.25s ease;
-}
-
 .niche-card > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .niche-card:hover {
@@ -538,12 +482,66 @@ h2 {
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
-.niche-card:hover::before {
-  opacity: 0.95;
+/* =========================================================
+   IMAGE BACKGROUND VERSION
+   ========================================================= */
+
+.niche-card--bg {
+  background: #020617;
 }
 
+/* IMAGEN */
+.niche-card--bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+
+  /* MÁS FUERZA VISUAL */
+  filter: saturate(1.25) contrast(1.1) brightness(0.85);
+
+  transform: scale(1.05);
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+
+  z-index: 0;
+}
+
+/* OVERLAY (menos pesado + mejor degradado) */
+.niche-card--bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.15) 0%,
+    rgba(2, 6, 23, 0.45) 45%,
+    rgba(2, 6, 23, 0.9) 100%
+  );
+
+  z-index: 1;
+}
+
+/* HOVER MÁS PREMIUM */
+.niche-card--bg:hover::before {
+  transform: scale(1.1);
+  filter: saturate(1.4) contrast(1.15) brightness(0.95);
+}
+
+.niche-card--bg:hover {
+  border-color: rgba(169, 129, 255, 0.5);
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
 .niche-card span {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 14px;
   font-weight: 800;
 }
@@ -558,13 +556,13 @@ h2 {
 
 .niche-card p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .niche-card small {
   display: inline-block;
   margin-top: 28px;
-  color: #ffffff;
+  color: var(--primary-200);
   font-weight: 800;
 }
 
