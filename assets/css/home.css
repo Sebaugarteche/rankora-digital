@@ -570,48 +570,51 @@ h2 {
   counter-reset: step;
   display: grid;
   gap: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(208, 188, 252, 0.28);
 }
 
 .process-item {
   counter-increment: step;
+  position: relative;
+
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 32px;
-  padding: 34px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-   position: relative;
+
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(208, 188, 252, 0.22);
 }
 
-/* línea glow muy sutil */
+/* línea violeta visible */
 .process-item::after {
   content: "";
   position: absolute;
-  left: 120px;
+  left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   height: 1px;
 
   background: linear-gradient(
     90deg,
-    transparent,
-    rgba(169, 129, 255, 0.35),
-    transparent
+    rgba(208, 188, 252, 0.05),
+    rgba(169, 129, 255, 0.65),
+    rgba(56, 189, 248, 0.35),
+    rgba(208, 188, 252, 0.05)
   );
 
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .process-item::before {
   content: "0" counter(step);
-  color: var(--accent);
+  color: var(--primary-300);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .process-item h3 {
   margin: 0 0 8px;
-  color: var(--text);
+  color: #ffffff;
   font-size: 28px;
   letter-spacing: -0.03em;
 }
@@ -619,7 +622,7 @@ h2 {
 .process-item p {
   max-width: 720px;
   margin: 0;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.68);
 }
 
 /* =========================================================
