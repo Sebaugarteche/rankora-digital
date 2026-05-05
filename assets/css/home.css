@@ -458,7 +458,7 @@ h2 {
   padding: 28px;
   border: 1px solid rgba(208, 188, 252, 0.14);
   border-radius: 24px;
-  background: var(--surface);
+  background: #020617;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -467,8 +467,7 @@ h2 {
   transition:
     transform 0.22s ease,
     border-color 0.22s ease,
-    box-shadow 0.22s ease,
-    background-size 0.6s ease;
+    box-shadow 0.22s ease;
 }
 
 .niche-card:hover {
@@ -482,24 +481,44 @@ h2 {
   z-index: 2;
 }
 
-/* IMAGE CARD — estable, sin pseudo-elementos */
-.niche-card--bg {
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(2, 6, 23, 0.18) 0%,
-      rgba(2, 6, 23, 0.48) 45%,
-      rgba(2, 6, 23, 0.92) 100%
-    ),
-    var(--bg-img);
+/* imagen como fondo */
+.niche-card--bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 
-  background-size: 100%, cover;
-  background-position: center, center;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+
+  filter: saturate(1.25) contrast(1.1) brightness(0.85);
+  transform: scale(1.04);
+
+  transition:
+    transform 0.65s ease,
+    filter 0.65s ease;
 }
 
-.niche-card--bg:hover {
-  background-size: 100%, 108%;
+/* overlay */
+.niche-card--bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.14) 0%,
+    rgba(2, 6, 23, 0.42) 48%,
+    rgba(2, 6, 23, 0.92) 100%
+  );
+}
+
+.niche-card--bg:hover::before {
+  transform: scale(1.12);
+  filter: saturate(1.4) contrast(1.15) brightness(0.95);
 }
 
 /* TEXT */
@@ -529,8 +548,6 @@ h2 {
   color: var(--primary-200);
   font-weight: 800;
 }
-
-
 
 /* =========================================================
    09. PANELS / SPLIT CONTENT
