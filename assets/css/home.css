@@ -481,7 +481,8 @@ h2 {
   z-index: 2;
 }
 
-/* imagen como fondo */
+/* IMAGE BACKGROUND */
+
 .niche-card--bg::before {
   content: "";
   position: absolute;
@@ -500,7 +501,6 @@ h2 {
     filter 0.65s ease;
 }
 
-/* overlay */
 .niche-card--bg::after {
   content: "";
   position: absolute;
@@ -522,13 +522,16 @@ h2 {
 
 /* TEXT */
 
-.niche-card span {
+.niche-card > span {
   color: rgba(255, 255, 255, 0.78);
   font-size: 14px;
   font-weight: 800;
 }
 
 .niche-card h3 {
+  min-height: 72px;
+  display: flex;
+  align-items: flex-end;
   margin: 0 0 16px;
   color: #ffffff;
   font-size: 28px;
@@ -536,7 +539,18 @@ h2 {
   letter-spacing: -0.04em;
 }
 
+.niche-card h3 span,
+.niche-card p span,
+.niche-card small span {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
 .niche-card p {
+  min-height: 96px;
   margin: 0;
   color: rgba(255, 255, 255, 0.76);
 }
@@ -548,11 +562,7 @@ h2 {
   font-weight: 800;
 }
 
-.niche-card h3 {
-  min-height: 72px;
-  display: flex;
-  align-items: flex-end;
-}
+/* IMAGES */
 
 .niche-card--restauracion::before {
   background-image: url("/assets/img/industrias/Restauracion.jpg");
