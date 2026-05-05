@@ -353,6 +353,11 @@ a {
   text-wrap: balance;
 }
 
+.hero h1 span[data-i18n="es"] {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .hero-copy {
   max-width: 600px;
   margin: 0 auto 32px;
