@@ -831,5 +831,133 @@
   }
 </script>
 
+  <!-- =====================================================
+     12D. SCRIPT / PLANS CAROUSEL + PURCHASE MODAL
+====================================================== -->
+
+<script>
+  const plansCarousel = document.querySelector('[data-plans-carousel]');
+
+  if (plansCarousel) {
+    const planCards = [...plansCarousel.querySelectorAll('[data-plan-card]')];
+    const prevPlanButton = plansCarousel.querySelector('.plans-arrow--prev');
+    const nextPlanButton = plansCarousel.querySelector('.plans-arrow--next');
+
+    let activePlanIndex = 0;
+
+    function updatePlans() {
+      planCards.forEach((card, index) => {
+        card.classList.remove('is-active', 'is-prev', 'is-next');
+
+        const prevIndex = (activePlanIndex - 1 + planCards.length) % planCards.length;
+        const nextIndex = (activePlanIndex + 1) % planCards.length;
+
+        if (index === activePlanIndex) {
+          card.classList.add('is-active');
+        }
+
+        if (index === prevIndex) {
+          card.classList.add('is-prev');
+        }
+
+        if (index === nextIndex) {
+          card.classList.add('is-next');
+        }
+      });
+    }
+
+    function goToNextPlan() {
+      activePlanIndex = (activePlanIndex + 1) % planCards.length;
+      updatePlans();
+    }
+
+    function goToPrevPlan() {
+      activePlanIndex = (activePlanIndex - 1 + planCards.length) % planCards.length;
+      updatePlans();
+    }
+
+    nextPlanButton.addEventListener('click', goToNextPlan);
+    prevPlanButton.addEventListener('click', goToPrevPlan);
+
+    planCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        if (index !== activePlanIndex) {
+          activePlanIndex = index;
+          updatePlans();
+        }
+      });
+    });
+
+    updatePlans();
+  }
+
+  const purchaseModal = document.querySelector('[data-purchase-modal]');
+  const buyButtons = document.querySelectorAll('[data-buy-plan]');
+  const closePurchaseButtons = document.querySelectorAll('[data-close-purchase]');
+  const modalTitle = document.querySelector('[data-modal-title]');
+  const modalCopy = document.querySelector('[data-modal-copy]');
+  const modalPrice = document.querySelector('[data-modal-price]');
+  const paymentLink = document.querySelector('[data-payment-link]');
+
+  const plansData = {
+    base: {
+      title: 'Pack Base',
+      copy: 'Web esencial para empezar a posicionar tu negocio.',
+      price: '€650',
+      link: '#'
+    },
+    growth: {
+      title: 'Pack Growth',
+      copy: 'Web estratégica con primeras señales de visibilidad.',
+      price: '€1100',
+      link: '#'
+    },
+    authority: {
+      title: 'Pack Authority',
+      copy: 'Web, contenido SEO y señales externas para posicionar con más fuerza.',
+      price: '€1500',
+      link: '#'
+    }
+  };
+
+  function openPurchaseModal(planKey) {
+    const plan = plansData[planKey];
+
+    if (!purchaseModal || !plan) return;
+
+    modalTitle.textContent = plan.title;
+    modalCopy.textContent = plan.copy;
+    modalPrice.textContent = plan.price;
+    paymentLink.href = plan.link;
+
+    purchaseModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePurchaseModal() {
+    if (!purchaseModal) return;
+
+    purchaseModal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  buyButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      openPurchaseModal(button.dataset.buyPlan);
+    });
+  });
+
+  closePurchaseButtons.forEach(button => {
+    button.addEventListener('click', closePurchaseModal);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closePurchaseModal();
+    }
+  });
+</script>
+
 </body>
 </html>
