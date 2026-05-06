@@ -994,7 +994,8 @@ h2 {
   border-radius: 28px;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 210px 1fr auto;
+  grid-template-rows: auto auto auto;
+  row-gap: 24px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
 }
 
@@ -1082,9 +1083,9 @@ h2 {
 }
 
 .plan-price {
-  padding-top: 26px;
+  padding-top: 12px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 18px;
 }
@@ -1103,25 +1104,34 @@ h2 {
   opacity: 0.7;
 }
 
+.plan-price > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* BOTÓN RESERVA (50%) */
 
 .plan-reserve {
-  min-height: 38px;
-  padding: 0 14px;
+  min-height: 42px;
+  padding: 0 16px;
   border: 1px solid currentColor;
-  border-radius: 999px;
+  border-radius: 10px; /* antes 999px */
   background: transparent;
   color: inherit;
+
   font: inherit;
   font-size: 12px;
   font-weight: 800;
+
   cursor: pointer;
   white-space: nowrap;
-  opacity: 0.82;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  opacity: 0.85;
 
   transition:
     opacity 0.2s ease,
@@ -1132,7 +1142,7 @@ h2 {
 .plan-reserve:hover {
   opacity: 1;
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* =====================
