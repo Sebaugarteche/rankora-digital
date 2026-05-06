@@ -917,6 +917,10 @@ h2 {
   margin: 0;
 }
 
+/* =====================
+   CAROUSEL
+===================== */
+
 .plans-carousel {
   position: relative;
   max-width: 1180px;
@@ -933,6 +937,10 @@ h2 {
   height: 730px;
 }
 
+/* =====================
+   CARDS POSICIONAMIENTO
+===================== */
+
 .plan-card {
   position: absolute;
   top: 0;
@@ -941,10 +949,12 @@ h2 {
   min-height: 680px;
   display: flex;
   flex-direction: column;
+
   transform: translateX(-50%) scale(0.82);
   opacity: 0.38;
   z-index: 1;
   pointer-events: none;
+
   transition:
     transform 0.45s ease,
     opacity 0.45s ease,
@@ -972,6 +982,10 @@ h2 {
   pointer-events: auto;
 }
 
+/* =====================
+   CARD STYLE
+===================== */
+
 .plan-card__main {
   position: relative;
   z-index: 2;
@@ -989,7 +1003,6 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  pointer-events: none;
 }
 
 .plan-card__main > * {
@@ -997,15 +1010,11 @@ h2 {
   z-index: 1;
 }
 
+/* THEMES */
+
 .plan-card--base .plan-card__main {
   background: linear-gradient(160deg, #063f25, #04140d 70%);
   color: #f8f3d1;
-}
-
-.plan-card--base .plan-card__main::before {
-  background:
-    radial-gradient(circle at 20% 0%, rgba(255, 219, 112, 0.22), transparent 36%),
-    radial-gradient(circle at 85% 95%, rgba(255, 199, 82, 0.16), transparent 42%);
 }
 
 .plan-card--growth .plan-card__main {
@@ -1013,22 +1022,14 @@ h2 {
   color: #1f1b16;
 }
 
-.plan-card--growth .plan-card__main::before {
-  background:
-    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.38), transparent 34%),
-    radial-gradient(circle at 85% 95%, rgba(70, 45, 20, 0.16), transparent 42%);
-}
-
 .plan-card--authority .plan-card__main {
   background: linear-gradient(160deg, #22211e, #090909 72%);
   color: #f3dfb7;
 }
 
-.plan-card--authority .plan-card__main::before {
-  background:
-    radial-gradient(circle at 18% 0%, rgba(255, 221, 150, 0.18), transparent 36%),
-    radial-gradient(circle at 85% 95%, rgba(255, 202, 103, 0.12), transparent 42%);
-}
+/* =====================
+   CONTENT
+===================== */
 
 .plan-tag {
   margin: 0 0 8px;
@@ -1063,16 +1064,13 @@ h2 {
 .plan-list li {
   padding: 9px 0;
   font-size: 15px;
-  line-height: 1.3;
   opacity: 0.84;
 }
 
 .plan-list li::before {
   content: "○";
-  display: inline-block;
   margin-right: 10px;
   font-size: 11px;
-  transform: translateY(-1px);
 }
 
 .plan-list li.is-muted {
@@ -1081,7 +1079,6 @@ h2 {
 
 .plan-list li.is-muted::before {
   content: "";
-  margin-right: 0;
 }
 
 .plan-price {
@@ -1091,16 +1088,17 @@ h2 {
 .plan-price strong {
   display: block;
   font-size: 34px;
-  line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .plan-price span {
-  display: block;
-  margin-top: 4px;
   font-size: 14px;
   opacity: 0.7;
 }
+
+/* =====================
+   CTA (KEY FIX)
+===================== */
 
 .plan-cta {
   position: relative;
@@ -1110,23 +1108,37 @@ h2 {
   margin: -22px auto 0;
   border: 0;
   border-radius: 0 0 24px 24px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font: inherit;
+
   font-weight: 800;
-  text-align: center;
   cursor: pointer;
+
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+
   transition:
-    transform 0.2s ease,
+    opacity 0.28s ease,
+    transform 0.28s ease,
     filter 0.2s ease;
 }
 
-.plan-cta:hover {
-  transform: translateY(2px);
-  filter: brightness(1.05);
+/* SOLO ACTIVA visible */
+
+.plan-card:not(.is-active) .plan-cta {
+  opacity: 0;
+  transform: translateY(-18px);
+  pointer-events: none;
 }
+
+.plan-card.is-active .plan-cta {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* CTA COLORS */
 
 .plan-card--base .plan-cta {
   background: #f0c451;
@@ -1143,24 +1155,20 @@ h2 {
   color: #1f1b16;
 }
 
+/* =====================
+   ARROWS
+===================== */
+
 .plans-arrow {
   position: absolute;
-  top: 48%;
-  z-index: 8;
+  top: 50%;
+  z-index: 10;
   border: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.84);
   font-size: 48px;
-  line-height: 1;
   cursor: pointer;
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.plans-arrow:hover {
-  color: var(--primary-300);
-  transform: scale(1.08);
+  transform: translateY(-50%);
 }
 
 .plans-arrow--prev {
@@ -1171,7 +1179,9 @@ h2 {
   right: 16px;
 }
 
-/* PURCHASE MODAL */
+/* =====================
+   MODAL
+===================== */
 
 .purchase-modal {
   position: fixed;
@@ -1179,7 +1189,6 @@ h2 {
   z-index: 100;
   display: grid;
   place-items: center;
-  padding: 20px;
 }
 
 .purchase-modal[hidden] {
@@ -1198,13 +1207,8 @@ h2 {
   z-index: 1;
   width: min(460px, 100%);
   padding: 34px;
-  border: 1px solid rgba(208, 188, 252, 0.2);
   border-radius: 24px;
-  background:
-    radial-gradient(circle at 20% 0%, rgba(169, 129, 255, 0.2), transparent 40%),
-    #050817;
-  color: #ffffff;
-  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.45);
+  background: #050817;
 }
 
 .purchase-modal__close {
@@ -1212,31 +1216,23 @@ h2 {
   top: 18px;
   right: 18px;
   border: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 30px;
-  line-height: 1;
+  background: none;
+  color: white;
+  font-size: 28px;
   cursor: pointer;
-}
-
-.purchase-modal__box h3 {
-  margin: 18px 0 10px;
-  font-size: 38px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.purchase-modal__box p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.68);
 }
 
 .purchase-modal__price {
   margin: 28px 0;
   font-size: 46px;
-  line-height: 1;
   font-weight: 800;
-  letter-spacing: -0.04em;
+}
+
+/* BOTONES */
+
+.purchase-modal__actions {
+  display: grid;
+  gap: 12px;
 }
 
 .purchase-modal__button {
@@ -1244,97 +1240,16 @@ h2 {
   min-height: 54px;
   border-radius: 8px;
   background: var(--primary-400);
-  color: #ffffff;
-  display: inline-flex;
+  color: #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
 }
 
-.purchase-modal__button:hover {
-  background: var(--primary-300);
-  color: #020617;
-}
-
-.purchase-modal__box small {
-  display: block;
-  margin-top: 16px;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-/* RESPONSIVE PLANS */
-
-@media (max-width: 900px) {
-  .plans-carousel {
-    min-height: 720px;
-  }
-
-  .plans-track {
-    height: 700px;
-  }
-
-  .plan-card {
-    width: min(370px, 84vw);
-  }
-
-  .plan-card.is-prev {
-    transform: translateX(calc(-50% - 230px)) scale(0.72);
-  }
-
-  .plan-card.is-next {
-    transform: translateX(calc(-50% + 230px)) scale(0.72);
-  }
-
-  .plans-arrow--prev {
-    left: 0;
-  }
-
-  .plans-arrow--next {
-    right: 0;
-  }
-}
-
-@media (max-width: 560px) {
-  .plans-head {
-    margin-bottom: 44px;
-  }
-
-  .plans-carousel {
-    min-height: 710px;
-  }
-
-  .plans-track {
-    height: 690px;
-  }
-
-  .plan-card {
-    width: min(340px, 88vw);
-  }
-
-  .plan-card.is-prev,
-  .plan-card.is-next {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .plans-arrow {
-    top: auto;
-    bottom: 0;
-    font-size: 40px;
-  }
-
-  .plans-arrow--prev {
-    left: calc(50% - 58px);
-  }
-
-  .plans-arrow--next {
-    right: calc(50% - 58px);
-  }
+.purchase-modal__button--secondary {
+  background: transparent;
+  border: 1px solid rgba(208, 188, 252, 0.3);
 }
 
 /* =========================================================
