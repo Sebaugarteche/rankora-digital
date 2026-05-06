@@ -447,7 +447,7 @@
   </div>
 </section>
 
-   <!-- =====================================================
+  <!-- =====================================================
      09. PLANES
 ====================================================== -->
 
@@ -466,98 +466,138 @@
       </h2>
     </div>
 
-    <div class="plans-grid">
+    <div class="plans-carousel" data-plans-carousel>
 
-      <!-- PACK BASE -->
-      <article class="plan-card plan-card--base">
-        <div class="plan-card__main">
-          <div class="plan-card__top">
-            <p class="plan-tag">Pack Base</p>
-            <h3>Web esencial</h3>
-            <p class="plan-copy">Una primera web clara, profesional y preparada para empezar a posicionar tu negocio.</p>
+      <button class="plans-arrow plans-arrow--prev" type="button" aria-label="Plan anterior">
+        ←
+      </button>
+
+      <div class="plans-track">
+
+        <article class="plan-card plan-card--base is-active" data-plan-card data-plan="base">
+          <div class="plan-card__main">
+            <div class="plan-card__top">
+              <p class="plan-tag">Pack Base</p>
+              <h3>Web esencial</h3>
+              <p class="plan-copy">Una primera web clara, profesional y preparada para empezar a posicionar tu negocio.</p>
+            </div>
+
+            <ul class="plan-list">
+              <li>Web</li>
+              <li>Diseño</li>
+              <li>SEO de tu web</li>
+              <li>Item pendiente</li>
+              <li>Item pendiente</li>
+              <li>Item pendiente</li>
+              <li class="is-muted">-</li>
+              <li class="is-muted">-</li>
+              <li class="is-muted">-</li>
+            </ul>
+
+            <div class="plan-price">
+              <strong>€650</strong>
+              <span>Pago único</span>
+            </div>
           </div>
 
-          <ul class="plan-list">
-            <li>Web</li>
-            <li>Diseño</li>
-            <li>SEO de tu web</li>
-            <li>Item pendiente</li>
-            <li>Item pendiente</li>
-            <li>Item pendiente</li>
-            <li class="is-muted">-</li>
-            <li class="is-muted">-</li>
-            <li class="is-muted">-</li>
-          </ul>
+          <button class="plan-cta" type="button" data-buy-plan="base">
+            Comprar Pack Base
+          </button>
+        </article>
 
-          <div class="plan-price">
-            <strong>€650</strong>
-            <span>Pago único</span>
-          </div>
-        </div>
+        <article class="plan-card plan-card--growth" data-plan-card data-plan="growth">
+          <div class="plan-card__main">
+            <div class="plan-card__top">
+              <p class="plan-tag">Pack Growth</p>
+              <h3>Web + visibilidad</h3>
+              <p class="plan-copy">Para negocios que necesitan una web sólida y empezar a generar señales de visibilidad.</p>
+            </div>
 
-        <a href="#contacto" class="plan-cta">Consultar Pack Base</a>
-      </article>
+            <ul class="plan-list">
+              <li>Web</li>
+              <li>Diseño</li>
+              <li>SEO de tu web</li>
+              <li>Google Business Profile setup</li>
+              <li>Contenido inicial</li>
+              <li>Item pendiente</li>
+              <li class="is-muted">-</li>
+              <li class="is-muted">-</li>
+              <li class="is-muted">-</li>
+            </ul>
 
-      <!-- PACK GROWTH -->
-      <article class="plan-card plan-card--growth">
-        <div class="plan-card__main">
-          <div class="plan-card__top">
-            <p class="plan-tag">Pack Growth</p>
-            <h3>Web + visibilidad</h3>
-            <p class="plan-copy">Para negocios que necesitan una web sólida y empezar a generar señales de visibilidad.</p>
-          </div>
-
-          <ul class="plan-list">
-            <li>Web</li>
-            <li>Diseño</li>
-            <li>SEO de tu web</li>
-            <li>Google Business Profile setup</li>
-            <li>Contenido inicial</li>
-            <li>Item pendiente</li>
-            <li class="is-muted">-</li>
-            <li class="is-muted">-</li>
-            <li class="is-muted">-</li>
-          </ul>
-
-          <div class="plan-price">
-            <strong>€1100</strong>
-            <span>Pago único</span>
-          </div>
-        </div>
-
-        <a href="#contacto" class="plan-cta">Consultar Pack Growth</a>
-      </article>
-
-      <!-- PACK AUTHORITY -->
-      <article class="plan-card plan-card--authority">
-        <div class="plan-card__main">
-          <div class="plan-card__top">
-            <p class="plan-tag">Pack Authority</p>
-            <h3>Web + autoridad</h3>
-            <p class="plan-copy">Para marcas que quieren posicionarse con más fuerza, contenido SEO y señales externas.</p>
+            <div class="plan-price">
+              <strong>€1100</strong>
+              <span>Pago único</span>
+            </div>
           </div>
 
-          <ul class="plan-list">
-            <li>Web</li>
-            <li>Diseño</li>
-            <li>SEO de tu web</li>
-            <li>Google Business Profile optimizado</li>
-            <li>Backlinks</li>
-            <li>Contenido SEO</li>
-            <li>Directorios</li>
-            <li>Item pendiente</li>
-            <li>Item pendiente</li>
-          </ul>
+          <button class="plan-cta" type="button" data-buy-plan="growth">
+            Comprar Pack Growth
+          </button>
+        </article>
 
-          <div class="plan-price">
-            <strong>€1500</strong>
-            <span>Pago único</span>
+        <article class="plan-card plan-card--authority" data-plan-card data-plan="authority">
+          <div class="plan-card__main">
+            <div class="plan-card__top">
+              <p class="plan-tag">Pack Authority</p>
+              <h3>Web + autoridad</h3>
+              <p class="plan-copy">Para marcas que quieren posicionarse con más fuerza, contenido SEO y señales externas.</p>
+            </div>
+
+            <ul class="plan-list">
+              <li>Web</li>
+              <li>Diseño</li>
+              <li>SEO de tu web</li>
+              <li>Google Business Profile optimizado</li>
+              <li>Backlinks</li>
+              <li>Contenido SEO</li>
+              <li>Directorios</li>
+              <li>Item pendiente</li>
+              <li>Item pendiente</li>
+            </ul>
+
+            <div class="plan-price">
+              <strong>€1500</strong>
+              <span>Pago único</span>
+            </div>
           </div>
-        </div>
 
-        <a href="#contacto" class="plan-cta">Consultar Pack Authority</a>
-      </article>
+          <button class="plan-cta" type="button" data-buy-plan="authority">
+            Comprar Pack Authority
+          </button>
+        </article>
 
+      </div>
+
+      <button class="plans-arrow plans-arrow--next" type="button" aria-label="Plan siguiente">
+        →
+      </button>
+
+    </div>
+  </div>
+
+  <div class="purchase-modal" data-purchase-modal hidden>
+    <div class="purchase-modal__overlay" data-close-purchase></div>
+
+    <div class="purchase-modal__box">
+      <button class="purchase-modal__close" type="button" data-close-purchase>
+        ×
+      </button>
+
+      <p class="section-label">Compra segura</p>
+
+      <h3 data-modal-title>Pack Base</h3>
+      <p data-modal-copy>Estás por comprar este plan.</p>
+
+      <div class="purchase-modal__price" data-modal-price>€650</div>
+
+      <a href="#" class="purchase-modal__button" data-payment-link target="_blank" rel="noopener">
+        Continuar al pago
+      </a>
+
+      <small>
+        El pago se realiza en una plataforma segura externa. No almacenamos datos de tarjeta.
+      </small>
     </div>
   </div>
 </section>
