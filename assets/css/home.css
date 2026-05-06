@@ -1253,23 +1253,40 @@ h2 {
 }
 
 /* =========================================================
-   13. CTA / CONTACT FORM
+   13. CONTACT INTRO + CTA
    ========================================================= */
 
-.cta-precopy {
-  max-width: 420px;
-  justify-self: end;
+/* =====================
+   INTRO (ANTES DEL FORM)
+===================== */
+
+.contact-intro {
+  padding: 110px 0 24px;
+  background: #020617;
+  text-align: center;
 }
 
-.cta-precopy p {
-  margin: 0 0 16px;
-  font-size: 16px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.72);
+.contact-intro .section-label {
+  margin-bottom: 18px;
 }
+
+.contact-intro h2 {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.contact-intro p {
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 22px;
+}
+
+/* =====================
+   CTA BOX
+===================== */
 
 .cta-section {
-  padding: 120px 0;
+  padding: 48px 0 120px;
 }
 
 .cta-box {
@@ -1288,7 +1305,8 @@ h2 {
   color: #ffffff;
 }
 
-/* BORDE CONTINUO (flow) */
+/* BORDE ANIMADO */
+
 .cta-box::before {
   content: "";
   position: absolute;
@@ -1309,7 +1327,8 @@ h2 {
   animation: ctaBorderFlow 6s linear infinite;
 }
 
-/* MÁSCARA + GLOW INTERIOR */
+/* FONDO INTERNO */
+
 .cta-box::after {
   content: "";
   position: absolute;
@@ -1331,7 +1350,8 @@ h2 {
     #020617;
 }
 
-/* ANIMACIÓN BORDE */
+/* ANIMACIÓN */
+
 @keyframes ctaBorderFlow {
   0% {
     background-position: 0% 50%;
@@ -1341,7 +1361,9 @@ h2 {
   }
 }
 
-/* TEXTOS */
+/* =====================
+   TEXTOS
+===================== */
 
 .cta-box h2,
 .cta-box h2 span {
@@ -1362,7 +1384,9 @@ h2 {
   font-size: 20px;
 }
 
-/* FORM */
+/* =====================
+   FORM
+===================== */
 
 .contact-form {
   width: 100%;
@@ -1410,7 +1434,7 @@ h2 {
   box-shadow: 0 0 0 3px rgba(169, 129, 255, 0.18);
 }
 
-/* BUTTON */
+/* BOTÓN */
 
 .contact-form .btn {
   width: fit-content;
@@ -1448,10 +1472,7 @@ h2 {
   grid-column: 1;
   width: 16px;
   height: 16px;
-  min-width: 16px;
-  min-height: 16px;
-  margin: 1px 0 0;
-  padding: 0;
+  margin-top: 2px;
   accent-color: var(--primary-300);
 }
 
@@ -1467,6 +1488,19 @@ h2 {
   text-underline-offset: 2px;
 }
 
+/* =====================
+   RESPONSIVE
+===================== */
+
+@media (max-width: 900px) {
+  .cta-box {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    justify-self: start;
+  }
+}
 /* =========================================================
    14. FOOTER
    ========================================================= */
