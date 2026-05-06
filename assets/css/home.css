@@ -1106,6 +1106,7 @@ h2 {
   width: calc(100% - 48px);
   min-height: 72px;
   margin: -22px auto 0;
+  padding: 8px 24px 0;
   border: 0;
   border-radius: 0 0 24px 24px;
 
@@ -1113,7 +1114,11 @@ h2 {
   align-items: center;
   justify-content: center;
 
+  font: inherit;
+  font-size: 17.6px;
+  line-height: 1;
   font-weight: 800;
+  text-align: center;
   cursor: pointer;
 
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
@@ -1268,6 +1273,11 @@ h2 {
 
 .contact-intro .section-label {
   margin-bottom: 18px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .contact-intro h2 {
