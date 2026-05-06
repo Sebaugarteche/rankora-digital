@@ -275,13 +275,23 @@
   </div>
 </section>
         
-    <!-- =====================================================
-         07. MÉTODO
-    ====================================================== -->
-    <section class="section" id="metodo">
-      <div class="container split">
+   <!-- =====================================================
+     07. MÉTODO / STACK SLIDER
+====================================================== -->
 
-        <div class="panel">
+<section class="section method-section" id="metodo">
+  <div class="container">
+
+    <div class="method-stack" data-method-stack>
+
+      <button class="method-arrow method-arrow--prev" type="button" aria-label="Anterior">
+        ←
+      </button>
+
+      <div class="method-stack__cards">
+
+        <!-- CARD 01 -->
+        <article class="panel method-card is-active" data-method-card>
           <p class="section-label">
             <span data-i18n="es">Método</span>
             <span data-i18n="en" hidden>Method</span>
@@ -293,50 +303,15 @@
           </h2>
 
           <ul class="list">
-            <li>
-              <strong>Keyword</strong>
-              <span>
-                <span data-i18n="es">Qué busca tu cliente</span>
-                <span data-i18n="en" hidden>What your customer searches for</span>
-              </span>
-            </li>
-
-            <li>
-              <strong>
-                <span data-i18n="es">Mensaje</span>
-                <span data-i18n="en" hidden>Message</span>
-              </strong>
-              <span>
-                <span data-i18n="es">Qué queremos transmitir</span>
-                <span data-i18n="en" hidden>What they need to understand</span>
-              </span>
-            </li>
-
-            <li>
-              <strong>
-                <span data-i18n="es">Estructura</span>
-                <span data-i18n="en" hidden>Structure</span>
-              </strong>
-              <span>
-                <span data-i18n="es">Cómo ordenamos la decisión</span>
-                <span data-i18n="en" hidden>How we structure the decision</span>
-              </span>
-            </li>
-
-            <li>
-              <strong>
-                <span data-i18n="es">Diseño</span>
-                <span data-i18n="en" hidden>Design</span>
-              </strong>
-              <span>
-                <span data-i18n="es">Cómo elevamos percepción</span>
-                <span data-i18n="en" hidden>How we raise perceived value</span>
-              </span>
-            </li>
+            <li><strong>Keyword</strong><span><span data-i18n="es">Qué busca tu cliente</span><span data-i18n="en" hidden>What your customer searches for</span></span></li>
+            <li><strong><span data-i18n="es">Mensaje</span><span data-i18n="en" hidden>Message</span></strong><span><span data-i18n="es">Qué queremos transmitir</span><span data-i18n="en" hidden>What we want to communicate</span></span></li>
+            <li><strong><span data-i18n="es">Estructura</span><span data-i18n="en" hidden>Structure</span></strong><span><span data-i18n="es">Cómo ordenamos la decisión</span><span data-i18n="en" hidden>How we structure the decision</span></span></li>
+            <li><strong><span data-i18n="es">Diseño</span><span data-i18n="en" hidden>Design</span></strong><span><span data-i18n="es">Cómo elevamos percepción</span><span data-i18n="en" hidden>How we raise perceived value</span></span></li>
           </ul>
-        </div>
+        </article>
 
-        <div class="panel panel--dark">
+        <!-- CARD 02 -->
+        <article class="panel panel--dark method-card" data-method-card>
           <p class="section-label">
             <span data-i18n="es">Diferencial</span>
             <span data-i18n="en" hidden>Differential</span>
@@ -353,34 +328,22 @@
           </p>
 
           <ul class="list">
-            <li>
-              <strong>SEO</strong>
-              <span>
-                <span data-i18n="es">Para aparecer</span>
-                <span data-i18n="en" hidden>To be found</span>
-              </span>
-            </li>
-
-            <li>
-              <strong>UX</strong>
-              <span>
-                <span data-i18n="es">Para entender</span>
-                <span data-i18n="en" hidden>To be understood</span>
-              </span>
-            </li>
-
-            <li>
-              <strong>CTA</strong>
-              <span>
-                <span data-i18n="es">Para convertir</span>
-                <span data-i18n="en" hidden>To convert</span>
-              </span>
-            </li>
+            <li><strong>SEO</strong><span><span data-i18n="es">Para aparecer</span><span data-i18n="en" hidden>To be found</span></span></li>
+            <li><strong>UX</strong><span><span data-i18n="es">Para entender</span><span data-i18n="en" hidden>To be understood</span></span></li>
+            <li><strong>CTA</strong><span><span data-i18n="es">Para convertir</span><span data-i18n="en" hidden>To convert</span></span></li>
           </ul>
-        </div>
+        </article>
 
       </div>
-    </section>
+
+      <button class="method-arrow method-arrow--next" type="button" aria-label="Siguiente">
+        →
+      </button>
+
+    </div>
+
+  </div>
+</section>
 
 <!-- =====================================================
      08. PROCESO
@@ -573,7 +536,7 @@
   </footer>
 
   <!-- =====================================================
-       11. SCRIPT / LANGUAGE SWITCH
+       11A. SCRIPT / LANGUAGE SWITCH
   ====================================================== -->
   <script>
     const buttons = document.querySelectorAll('.lang-switch button');
@@ -631,7 +594,7 @@
   </script>
 
   <!-- =====================================================
-       12. SCRIPT / HERO MOUSE INTERACTION
+       11B. SCRIPT / HERO MOUSE INTERACTION
   ====================================================== -->
   <script>
     const hero = document.querySelector('.hero');
@@ -667,6 +630,48 @@
       animate();
     }
   </script>
+
+    <!-- =====================================================
+       11C. SCRIPT / CARDS METHOD / STACK SLIDER
+  ====================================================== -->
+
+  <script>
+  const methodStack = document.querySelector('[data-method-stack]');
+
+  if (methodStack) {
+    const cards = [...methodStack.querySelectorAll('[data-method-card]')];
+    const prevButton = methodStack.querySelector('.method-arrow--prev');
+    const nextButton = methodStack.querySelector('.method-arrow--next');
+    let activeIndex = 0;
+
+    function updateMethodCards() {
+      cards.forEach((card, index) => {
+        card.classList.remove('is-active', 'is-behind');
+
+        if (index === activeIndex) {
+          card.classList.add('is-active');
+        } else {
+          card.classList.add('is-behind');
+        }
+      });
+    }
+
+    function nextCard() {
+      activeIndex = (activeIndex + 1) % cards.length;
+      updateMethodCards();
+    }
+
+    function prevCard() {
+      activeIndex = (activeIndex - 1 + cards.length) % cards.length;
+      updateMethodCards();
+    }
+
+    nextButton.addEventListener('click', nextCard);
+    prevButton.addEventListener('click', prevCard);
+
+    updateMethodCards();
+  }
+</script>
 
 </body>
 </html>
