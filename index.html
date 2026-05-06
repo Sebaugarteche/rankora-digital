@@ -591,9 +591,15 @@
 
       <div class="purchase-modal__price" data-modal-price>€650</div>
 
-      <a href="#" class="purchase-modal__button" data-payment-link target="_blank" rel="noopener">
-        Continuar al pago
-      </a>
+      <div class="purchase-modal__actions">
+  <a href="#" class="purchase-modal__button" data-payment-full target="_blank" rel="noopener">
+    Pagar total
+  </a>
+
+  <a href="#" class="purchase-modal__button purchase-modal__button--secondary" data-payment-half target="_blank" rel="noopener">
+    Reservar con 50%
+  </a>
+</div>
 
       <small>
         El pago se realiza en una plataforma segura externa. No almacenamos datos de tarjeta.
@@ -897,28 +903,32 @@
   const modalTitle = document.querySelector('[data-modal-title]');
   const modalCopy = document.querySelector('[data-modal-copy]');
   const modalPrice = document.querySelector('[data-modal-price]');
-  const paymentLink = document.querySelector('[data-payment-link]');
+  const paymentFull = document.querySelector('[data-payment-full]');
+const paymentHalf = document.querySelector('[data-payment-half]');
 
   const plansData = {
-    base: {
-      title: 'Pack Base',
-      copy: 'Web esencial para empezar a posicionar tu negocio.',
-      price: '€650',
-      link: '#'
-    },
-    growth: {
-      title: 'Pack Growth',
-      copy: 'Web estratégica con primeras señales de visibilidad.',
-      price: '€1100',
-      link: '#'
-    },
-    authority: {
-      title: 'Pack Authority',
-      copy: 'Web, contenido SEO y señales externas para posicionar con más fuerza.',
-      price: '€1500',
-      link: '#'
-    }
-  };
+  base: {
+    title: 'Pack Base',
+    copy: 'Web esencial para empezar a posicionar tu negocio.',
+    price: '€650',
+    fullLink: '#',
+    halfLink: '#'
+  },
+  growth: {
+    title: 'Pack Growth',
+    copy: 'Web estratégica con primeras señales de visibilidad.',
+    price: '€1100',
+    fullLink: '#',
+    halfLink: '#'
+  },
+  authority: {
+    title: 'Pack Authority',
+    copy: 'Web, contenido SEO y señales externas para posicionar con más fuerza.',
+    price: '€1500',
+    fullLink: '#',
+    halfLink: '#'
+  }
+};
 
   function openPurchaseModal(planKey) {
     const plan = plansData[planKey];
@@ -928,7 +938,8 @@
     modalTitle.textContent = plan.title;
     modalCopy.textContent = plan.copy;
     modalPrice.textContent = plan.price;
-    paymentLink.href = plan.link;
+    paymentFull.href = plan.fullLink;
+    paymentHalf.href = plan.halfLink;
 
     purchaseModal.hidden = false;
     document.body.style.overflow = 'hidden';
