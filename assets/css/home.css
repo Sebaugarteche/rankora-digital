@@ -1083,50 +1083,60 @@ h2 {
 
 .plan-price {
   padding-top: 26px;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
 }
-
-/* LEFT (precio principal) */
 
 .plan-price strong {
   display: block;
   font-size: 34px;
+  line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .plan-price span {
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 14px;
   opacity: 0.7;
 }
 
-/* RIGHT (50%) */
+/* BOTÓN RESERVA (50%) */
 
-.plan-split {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-
-.plan-split span {
-  font-size: 16px;
-  font-weight: 700;
-  opacity: 0.95;
-}
-
-.plan-split small {
+.plan-reserve {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   font-size: 12px;
-  opacity: 0.55;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0.82;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.plan-reserve:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* =====================
-   CTA (KEY FIX)
+   CTA (SOLAPA)
 ===================== */
 
 .plan-cta {
@@ -1154,8 +1164,7 @@ h2 {
 
   transition:
     opacity 0.28s ease,
-    transform 0.28s ease,
-    filter 0.2s ease;
+    transform 0.28s ease;
 }
 
 /* SOLO ACTIVA visible */
@@ -1169,7 +1178,6 @@ h2 {
 .plan-card.is-active .plan-cta {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto;
 }
 
 /* CTA COLORS */
