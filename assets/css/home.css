@@ -494,10 +494,35 @@ h2 {
    09. INDUSTRIES / NICHE CARDS
    ========================================================= */
 
+.industries .section-label {
+  margin-bottom: 40px;
+}
+
 .niche-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+  margin-bottom: 80px;
+}
+
+.industries-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.industries-intro h2 {
+  margin: 0 0 20px;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.industries-intro p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 18px;
 }
 
 .niche-card {
@@ -511,7 +536,6 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-
   transition:
     transform 0.22s ease,
     border-color 0.22s ease,
@@ -529,21 +553,16 @@ h2 {
   z-index: 2;
 }
 
-/* IMAGE BACKGROUND */
-
 .niche-card--bg::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   filter: saturate(1.25) contrast(1.1) brightness(0.85);
   transform: scale(1.04);
-
   transition:
     transform 0.65s ease,
     filter 0.65s ease;
@@ -554,7 +573,6 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: 1;
-
   background: linear-gradient(
     180deg,
     rgba(2, 6, 23, 0.14) 0%,
@@ -567,8 +585,6 @@ h2 {
   transform: scale(1.12);
   filter: saturate(1.4) contrast(1.15) brightness(0.95);
 }
-
-/* TEXT */
 
 .niche-card > span {
   color: rgba(255, 255, 255, 0.78);
@@ -609,8 +625,6 @@ h2 {
   color: var(--primary-200);
   font-weight: 800;
 }
-
-/* IMAGES */
 
 .niche-card--restauracion::before {
   background-image: url("/assets/img/industrias/Restauracion.jpg");
