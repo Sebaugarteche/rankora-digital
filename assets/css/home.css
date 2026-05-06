@@ -643,13 +643,27 @@ h2 {
 }
 
 /* =========================================================
-   10. PANELS / SPLIT CONTENT
+   10. METHOD / STACK SLIDER
    ========================================================= */
 
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+.method-section {
+  overflow: hidden;
+}
+
+.method-stack {
+  position: relative;
+  max-width: 760px;
+  min-height: 560px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-stack__cards {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
 }
 
 .panel {
@@ -668,6 +682,68 @@ h2 {
 .panel--dark p,
 .panel--dark .list li {
   color: rgba(255, 255, 255, 0.68);
+}
+
+.method-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  transform: translateX(34px) scale(0.94);
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    z-index 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.method-card.is-active {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+}
+
+.method-card.is-behind {
+  transform: translateX(52px) translateY(24px) scale(0.94);
+  opacity: 0.42;
+  z-index: 2;
+}
+
+.method-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(208, 188, 252, 0.3);
+  background: rgba(15, 23, 42, 0.72);
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transform: translateY(-50%);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.method-arrow:hover {
+  background: var(--primary-500);
+  border-color: var(--primary-300);
+}
+
+.method-arrow--prev {
+  left: -72px;
+}
+
+.method-arrow--next {
+  right: -72px;
 }
 
 .list {
