@@ -1256,6 +1256,18 @@ h2 {
    13. CTA / CONTACT FORM
    ========================================================= */
 
+.cta-precopy {
+  max-width: 420px;
+  justify-self: end;
+}
+
+.cta-precopy p {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .cta-section {
   padding: 120px 0;
 }
