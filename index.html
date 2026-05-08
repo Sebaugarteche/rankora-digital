@@ -1229,5 +1229,78 @@ const paymentHalf = document.querySelector('[data-payment-half]');
   });
 </script>
 
-</body>
+<!-- =====================================================
+     12F. SCRIPT / MOBILE MENU + SWIPE
+====================================================== -->
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('[data-nav-menu]');
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+
+      navToggle.classList.toggle('is-open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  function addSwipe(element, onLeftSwipe, onRightSwipe) {
+    if (!element) return;
+
+    let startX = 0;
+    let startY = 0;
+    let isSwiping = false;
+
+    element.addEventListener('touchstart', (event) => {
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+      isSwiping = true;
+    }, { passive: true });
+
+    element.addEventListener('touchend', (event) => {
+      if (!isSwiping) return;
+
+      const endX = event.changedTouches[0].clientX;
+      const endY = event.changedTouches[0].clientY;
+
+      const diffX = endX - startX;
+      const diffY = endY - startY;
+
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          onLeftSwipe();
+        } else {
+          onRightSwipe();
+        }
+      }
+
+      isSwiping = false;
+    }, { passive: true });
+  }
+
+  const methodSwipeArea = document.querySelector('.method-stack__cards');
+
+  if (methodSwipeArea && typeof nextCard === 'function' && typeof prevCard === 'function') {
+    addSwipe(methodSwipeArea, nextCard, prevCard);
+  }
+
+  const plansSwipeArea = document.querySelector('.plans-track');
+
+  if (plansSwipeArea && typeof goToNextPlan === 'function' && typeof goToPrevPlan === 'function') {
+    addSwipe(plansSwipeArea, goToNextPlan, goToPrevPlan);
+  }
+</script>
+
+
+  </body>
 </html>
