@@ -181,6 +181,11 @@ a {
   color: #020617;
 }
 
+.nav-link-highlight {
+  color: #020617;
+  font-weight: 800;
+}
+
 .lang-switch {
   display: flex;
   align-items: center;
@@ -205,6 +210,8 @@ a {
   color: #020617;
   opacity: 1;
 }
+
+
 
 /* =========================================================
    05. BUTTONS
