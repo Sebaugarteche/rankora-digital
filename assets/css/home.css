@@ -2242,3 +2242,33 @@ h2 {
     padding: 34px 0;
   }
 }
+
+/* =====================
+   SWIPE FEEDBACK
+===================== */
+
+.method-stack__cards,
+.plans-track {
+  touch-action: pan-y;
+}
+
+.method-stack__cards.is-swiping,
+.plans-track.is-swiping {
+  cursor: grabbing;
+}
+
+.method-stack__cards.has-swiped .method-card.is-active,
+.plans-track.has-swiped .plan-card.is-active {
+  animation: swipeSettle 0.26s ease;
+}
+
+@keyframes swipeSettle {
+  0% {
+    filter: brightness(1.04);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
+
