@@ -1122,31 +1122,31 @@
   const modalCopy = document.querySelector('[data-modal-copy]');
   const modalPrice = document.querySelector('[data-modal-price]');
   const paymentFull = document.querySelector('[data-payment-full]');
-const paymentHalf = document.querySelector('[data-payment-half]');
+  const paymentHalf = document.querySelector('[data-payment-half]');
 
   const plansData = {
-  base: {
-    title: 'Pack Base',
-    copy: 'Web esencial para empezar a posicionar tu negocio.',
-    price: '€650',
-    fullLink: '#',
-    halfLink: '#'
-  },
-  growth: {
-    title: 'Pack Growth',
-    copy: 'Web estratégica con primeras señales de visibilidad.',
-    price: '€1100',
-    fullLink: '#',
-    halfLink: '#'
-  },
-  authority: {
-    title: 'Pack Authority',
-    copy: 'Web, contenido SEO y señales externas para posicionar con más fuerza.',
-    price: '€1500',
-    fullLink: '#',
-    halfLink: '#'
-  }
-};
+    base: {
+      title: 'Pack Base',
+      copy: 'Elegí cómo querés avanzar con este plan.',
+      price: '€650',
+      fullLink: '#',
+      halfLink: '#'
+    },
+    growth: {
+      title: 'Pack Growth',
+      copy: 'Elegí cómo querés avanzar con este plan.',
+      price: '€1100',
+      fullLink: '#',
+      halfLink: '#'
+    },
+    authority: {
+      title: 'Pack Authority',
+      copy: 'Elegí cómo querés avanzar con este plan.',
+      price: '€1500',
+      fullLink: '#',
+      halfLink: '#'
+    }
+  };
 
   function openPurchaseModal(planKey) {
     const plan = plansData[planKey];
@@ -1156,6 +1156,7 @@ const paymentHalf = document.querySelector('[data-payment-half]');
     modalTitle.textContent = plan.title;
     modalCopy.textContent = plan.copy;
     modalPrice.textContent = plan.price;
+
     paymentFull.href = plan.fullLink;
     paymentHalf.href = plan.halfLink;
 
@@ -1171,7 +1172,7 @@ const paymentHalf = document.querySelector('[data-payment-half]');
   }
 
   buyButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
+    button.addEventListener('click', event => {
       event.stopPropagation();
       openPurchaseModal(button.dataset.buyPlan);
     });
@@ -1181,7 +1182,7 @@ const paymentHalf = document.querySelector('[data-payment-half]');
     button.addEventListener('click', closePurchaseModal);
   });
 
-  document.addEventListener('keydown', (event) => {
+  document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       closePurchaseModal();
     }
