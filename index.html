@@ -1237,6 +1237,14 @@ const paymentHalf = document.querySelector('[data-payment-half]');
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('[data-nav-menu]');
 
+  function closeMobileMenu() {
+    if (!navToggle || !navMenu) return;
+
+    navMenu.classList.remove('is-open');
+    navToggle.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('is-open');
@@ -1246,29 +1254,69 @@ const paymentHalf = document.querySelector('[data-payment-half]');
     });
 
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('is-open');
-        navToggle.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', event => {
+      const clickedInsideNav = navMenu.contains(event.target);
+      const clickedToggle = navToggle.contains(event.target);
+
+      if (!clickedInsideNav && !clickedToggle) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeMobileMenu();
+      }
     });
   }
 
-  function addSwipe(element, onLeftSwipe, onRightSwipe) {
+  function addPremiumSwipe(element, onLeftSwipe, onRightSwipe) {
     if (!element) return;
 
     let startX = 0;
     let startY = 0;
-    let isSwiping = false;
+    let currentX = 0;
+    let isDragging = false;
+    let hasMoved = false;
 
-    element.addEventListener('touchstart', (event) => {
+    const minSwipeDistance = 56;
+    const maxVerticalTolerance = 70;
+
+    element.addEventListener('touchstart', event => {
+      if (event.touches.length !== 1) return;
+
       startX = event.touches[0].clientX;
       startY = event.touches[0].clientY;
-      isSwiping = true;
+      currentX = startX;
+      isDragging = true;
+      hasMoved = false;
+
+      element.classList.add('is-swiping');
     }, { passive: true });
 
-    element.addEventListener('touchend', (event) => {
-      if (!isSwiping) return;
+    element.addEventListener('touchmove', event => {
+      if (!isDragging) return;
+
+      currentX = event.touches[0].clientX;
+
+      const diffX = currentX - startX;
+      const diffY = event.touches[0].clientY - startY;
+
+      if (Math.abs(diffX) > 8) {
+        hasMoved = true;
+      }
+
+      if (Math.abs(diffY) > maxVerticalTolerance) {
+        isDragging = false;
+        element.classList.remove('is-swiping');
+      }
+    }, { passive: true });
+
+    element.addEventListener('touchend', event => {
+      if (!isDragging) return;
 
       const endX = event.changedTouches[0].clientX;
       const endY = event.changedTouches[0].clientY;
@@ -1276,7 +1324,11 @@ const paymentHalf = document.querySelector('[data-payment-half]');
       const diffX = endX - startX;
       const diffY = endY - startY;
 
-      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+      const isHorizontalSwipe =
+        Math.abs(diffX) > minSwipeDistance &&
+        Math.abs(diffX) > Math.abs(diffY) * 1.25;
+
+      if (isHorizontalSwipe) {
         if (diffX < 0) {
           onLeftSwipe();
         } else {
@@ -1284,20 +1336,34 @@ const paymentHalf = document.querySelector('[data-payment-half]');
         }
       }
 
-      isSwiping = false;
+      isDragging = false;
+      hasMoved = false;
+
+      element.classList.remove('is-swiping');
+      element.classList.add('has-swiped');
+
+      window.setTimeout(() => {
+        element.classList.remove('has-swiped');
+      }, 260);
+    }, { passive: true });
+
+    element.addEventListener('touchcancel', () => {
+      isDragging = false;
+      hasMoved = false;
+      element.classList.remove('is-swiping');
     }, { passive: true });
   }
 
   const methodSwipeArea = document.querySelector('.method-stack__cards');
 
   if (methodSwipeArea && typeof nextCard === 'function' && typeof prevCard === 'function') {
-    addSwipe(methodSwipeArea, nextCard, prevCard);
+    addPremiumSwipe(methodSwipeArea, nextCard, prevCard);
   }
 
   const plansSwipeArea = document.querySelector('.plans-track');
 
   if (plansSwipeArea && typeof goToNextPlan === 'function' && typeof goToPrevPlan === 'function') {
-    addSwipe(plansSwipeArea, goToNextPlan, goToPrevPlan);
+    addPremiumSwipe(plansSwipeArea, goToNextPlan, goToPrevPlan);
   }
 </script>
 
