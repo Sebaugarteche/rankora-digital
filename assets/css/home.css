@@ -182,8 +182,34 @@ a {
 }
 
 .nav-link-highlight {
+  position: relative;
   color: #020617;
-  font-weight: 800;
+  font-weight: 600;
+}
+
+/* underline sutil animado */
+
+.nav-link-highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #7c3aed; /* violeta marca */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+/* hover */
+
+.nav-link-highlight:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link-highlight:hover {
+  color: #020617;
 }
 
 .lang-switch {
