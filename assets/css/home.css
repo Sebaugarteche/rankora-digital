@@ -184,7 +184,7 @@ a {
 .nav-link-highlight {
   position: relative;
   color: #020617;
-  font-weight: 600;
+  font-weight: inherit;
 }
 
 /* underline sutil animado */
