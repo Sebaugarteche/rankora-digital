@@ -585,7 +585,7 @@
 
             <div class="plan-price">
               <div>
-                <span class="plan-price-old">€650</span>
+                <span class="plan-price-old">€750</span>
                 <strong>€650</strong>
                 <span data-i18n="es">Pago único</span>
                 <span data-i18n="en" hidden>One-time payment</span>
@@ -636,7 +636,7 @@
 
             <div class="plan-price">
               <div>
-                <span class="plan-price-old">€1100</span>
+                <span class="plan-price-old">€1300</span>
                 <strong>€1100</strong>
                 <span data-i18n="es">Pago único</span>
                 <span data-i18n="en" hidden>One-time payment</span>
@@ -689,7 +689,7 @@
 
             <div class="plan-price">
               <div>
-                <span class="plan-price-old">€1500</span>
+                <span class="plan-price-old">€1750</span>
                 <strong>€1500</strong>
                 <span data-i18n="es">Pago único</span>
                 <span data-i18n="en" hidden>One-time payment</span>
@@ -1100,8 +1100,8 @@
       updatePlans();
     }
 
-    nextPlanButton.addEventListener('click', goToNextPlan);
-    prevPlanButton.addEventListener('click', goToPrevPlan);
+    nextPlanButton?.addEventListener('click', goToNextPlan);
+    prevPlanButton?.addEventListener('click', goToPrevPlan);
 
     planCards.forEach((card, index) => {
       card.addEventListener('click', () => {
@@ -1113,14 +1113,59 @@
     });
 
     updatePlans();
+
+    /* =========================
+       SWIPE MOBILE
+    ========================= */
+
+    let startX = 0;
+    let startY = 0;
+
+    const plansTrack = plansCarousel.querySelector('.plans-track');
+
+    if (plansTrack) {
+      plansTrack.addEventListener('touchstart', event => {
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+      }, { passive: true });
+
+      plansTrack.addEventListener('touchend', event => {
+        const endX = event.changedTouches[0].clientX;
+        const endY = event.changedTouches[0].clientY;
+
+        const diffX = endX - startX;
+        const diffY = endY - startY;
+
+        if (
+          Math.abs(diffX) > 50 &&
+          Math.abs(diffX) > Math.abs(diffY)
+        ) {
+          if (diffX < 0) {
+            goToNextPlan();
+          } else {
+            goToPrevPlan();
+          }
+        }
+      }, { passive: true });
+    }
   }
 
+  /* =====================================================
+     PURCHASE MODAL
+  ====================================================== */
+
   const purchaseModal = document.querySelector('[data-purchase-modal]');
+
   const buyButtons = document.querySelectorAll('[data-buy-plan]');
+
   const closePurchaseButtons = document.querySelectorAll('[data-close-purchase]');
+
+  const closePurchaseButton = document.querySelector('.purchase-modal__close');
+
   const modalTitle = document.querySelector('[data-modal-title]');
   const modalCopy = document.querySelector('[data-modal-copy]');
   const modalPrice = document.querySelector('[data-modal-price]');
+
   const paymentFull = document.querySelector('[data-payment-full]');
   const paymentHalf = document.querySelector('[data-payment-half]');
 
@@ -1132,6 +1177,7 @@
       fullLink: '#',
       halfLink: '#'
     },
+
     growth: {
       title: 'Pack Growth',
       copy: 'Elegí cómo querés avanzar con este plan.',
@@ -1139,6 +1185,7 @@
       fullLink: '#',
       halfLink: '#'
     },
+
     authority: {
       title: 'Pack Authority',
       copy: 'Elegí cómo querés avanzar con este plan.',
@@ -1161,6 +1208,7 @@
     paymentHalf.href = plan.halfLink;
 
     purchaseModal.hidden = false;
+
     document.body.style.overflow = 'hidden';
   }
 
@@ -1168,12 +1216,14 @@
     if (!purchaseModal) return;
 
     purchaseModal.hidden = true;
+
     document.body.style.overflow = '';
   }
 
   buyButtons.forEach(button => {
     button.addEventListener('click', event => {
       event.stopPropagation();
+
       openPurchaseModal(button.dataset.buyPlan);
     });
   });
@@ -1181,6 +1231,10 @@
   closePurchaseButtons.forEach(button => {
     button.addEventListener('click', closePurchaseModal);
   });
+
+  if (closePurchaseButton) {
+    closePurchaseButton.addEventListener('click', closePurchaseModal);
+  }
 
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
