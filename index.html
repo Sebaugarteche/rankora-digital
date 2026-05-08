@@ -81,11 +81,16 @@
      03. HEADER / NAV
 ====================================================== -->
 
-  <header class="header">
+<header class="header">
   <nav class="nav container" aria-label="Navegación principal">
     <a href="/" class="logo">Rankora</a>
 
-    <div class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" data-nav-menu>
       <a href="#industrias">
         <span data-i18n="es">Industrias</span>
         <span data-i18n="en" hidden>Industries</span>
