@@ -80,7 +80,8 @@
 <!-- =====================================================
      03. HEADER / NAV
 ====================================================== -->
-<header class="header">
+
+  <header class="header">
   <nav class="nav container" aria-label="Navegación principal">
     <a href="/" class="logo">Rankora</a>
 
@@ -119,6 +120,8 @@
   </nav>
 </header>
 
+  <main>
+
     <!-- =====================================================
          04. HERO
     ====================================================== -->
@@ -133,7 +136,7 @@
 
         <h1>
   <span data-i18n="es">
-    Paginas webs<br>
+    Páginas webs<br>
     que posicionan marcas.
   </span>
 
@@ -301,7 +304,7 @@
         <!-- CARD 01 -->
         <article class="panel method-card is-active" data-method-card>
           <p class="section-label">
-            <span data-i18n="es">Métodologia</span>
+            <span data-i18n="es">Metodología</span>
             <span data-i18n="en" hidden>Method</span>
           </p>
 
@@ -841,6 +844,8 @@
     </div>
   </div>
 </section>
+
+    </main>
     
   <!-- =====================================================
        11. FOOTER
@@ -1172,6 +1177,50 @@ const paymentHalf = document.querySelector('[data-payment-half]');
     if (event.key === 'Escape') {
       closePurchaseModal();
     }
+  });
+</script>
+
+  <!-- =====================================================
+     12E. SCRIPT / SCROLL REVEAL
+====================================================== -->
+
+<script>
+  const revealElements = [
+    ...document.querySelectorAll(
+      '.intro-grid, .industries .section-label, .niche-card, .industries-intro, .method-stack, .section-head, .process-item, .plans-head, .plans-carousel, .contact-intro, .cta-box, .footer'
+    )
+  ];
+
+  revealElements.forEach((element, index) => {
+    element.classList.add('reveal');
+
+    if (element.classList.contains('niche-card') || element.classList.contains('process-item')) {
+      element.classList.add(`reveal-delay-${(index % 3) + 1}`);
+    }
+
+    if (
+      element.classList.contains('industries-intro') ||
+      element.classList.contains('contact-intro') ||
+      element.classList.contains('plans-head')
+    ) {
+      element.classList.add('reveal-soft');
+    }
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: '0px 0px -80px 0px'
+  });
+
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
   });
 </script>
 
