@@ -1370,6 +1370,7 @@ h2 {
   color: white;
   font-size: 28px;
   cursor: pointer;
+  z-index: 20;
 }
 
 .purchase-modal__price {
