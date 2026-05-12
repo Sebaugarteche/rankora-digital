@@ -1,10 +1,23 @@
 /* =========================================================
    FOOD & BEVERAGE LANDING
+   Rose Bay Digital
+   ========================================================= */
+
+/* =========================================================
+   01. FONTS
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   02. DESIGN TOKENS
    ========================================================= */
 
 :root {
   --fb-cream: #f6ead8;
   --fb-butter: #f2c85b;
+  --fb-orange: #d9822b;
+  --fb-orange-dark: #b9641f;
   --fb-olive: #72764f;
   --fb-moss: #34391f;
   --fb-wine: #4b1d1d;
@@ -14,8 +27,13 @@
   --fb-gold: #d6b16a;
 
   --font-display: "Fraunces", serif;
+  --font-premium: "Cormorant Garamond", Georgia, serif;
   --font-body: "Inter", sans-serif;
 }
+
+/* =========================================================
+   03. BASE PAGE
+   ========================================================= */
 
 .fb-page {
   font-family: var(--font-body);
@@ -30,7 +48,52 @@
   font-weight: 600;
 }
 
-/* HERO */
+.fb-eyebrow,
+.fb-kicker {
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fb-eyebrow {
+  color: var(--fb-butter);
+}
+
+.fb-kicker {
+  color: var(--fb-olive);
+}
+
+/* =========================================================
+   04. HEADER OVERRIDES
+   ========================================================= */
+
+.fb-page .nav-links .btn {
+  background: var(--fb-orange);
+  border-color: var(--fb-orange);
+  color: #fff8ed;
+}
+
+.fb-page .nav-links .btn:hover {
+  background: var(--fb-orange-dark);
+  border-color: var(--fb-orange-dark);
+  color: #fff8ed;
+}
+
+.fb-page .lang-switch a {
+  opacity: 0.5;
+  color: inherit;
+}
+
+.fb-page .lang-switch a.is-active {
+  opacity: 1;
+  color: #020617;
+}
+
+/* =========================================================
+   05. HERO
+   ========================================================= */
 
 .fb-hero {
   position: relative;
@@ -65,48 +128,35 @@
 .fb-hero__content {
   position: relative;
   z-index: 2;
-  max-width: 920px;
+  max-width: var(--container);
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
   padding: 120px 0 96px;
   color: #fff7ea;
 }
 
-.fb-eyebrow,
-.fb-kicker {
-  margin: 0 0 18px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.fb-eyebrow {
-  color: var(--fb-butter);
-}
-
-.fb-kicker {
-  color: var(--fb-olive);
-}
-
 .fb-hero h1 {
-  max-width: 940px;
+  max-width: 1060px;
   margin: 0;
   font-size: clamp(54px, 8vw, 118px);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
 }
 
 .fb-hero p:not(.fb-eyebrow) {
   max-width: 620px;
   margin: 28px 0 0;
-
   color: rgba(255, 247, 234, 0.82);
-
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 500;
   line-height: 1.32;
   letter-spacing: -0.02em;
 }
+
+/* =========================================================
+   06. BUTTONS
+   ========================================================= */
 
 .fb-button {
   display: inline-flex;
@@ -118,7 +168,8 @@
   border-radius: 999px;
   background: var(--fb-butter);
   color: var(--fb-ink);
-  font-weight: 800;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   transition:
     transform 0.22s ease,
     background 0.22s ease;
@@ -133,13 +184,19 @@
   background: #fff3d8;
 }
 
-/* STATEMENT */
+/* =========================================================
+   07. STATEMENT
+   ========================================================= */
 
 .fb-statement {
   padding: 120px 0;
   background:
     radial-gradient(circle at 0% 20%, rgba(242, 200, 91, 0.35), transparent 34%),
     var(--fb-cream);
+}
+
+.fb-statement .fb-kicker {
+  color: var(--fb-olive);
 }
 
 .fb-statement h2 {
@@ -151,23 +208,25 @@
   letter-spacing: -0.055em;
 }
 
-/* MOOD SPLIT */
+/* =========================================================
+   08. MOOD SECTIONS / WARM + PREMIUM
+   ========================================================= */
 
-.fb-mood__warm,
-.fb-mood__dark {
-  padding: 110px 0;
+.fb-mood {
+  padding: 120px 0;
 }
 
-.fb-mood__warm {
+.fb-mood--warm {
   background:
-    linear-gradient(135deg, #f6ead8 0%, #e7d29f 55%, #b8b06f 100%);
+    radial-gradient(circle at 20% 20%, rgba(242, 200, 91, 0.22), transparent 36%),
+    linear-gradient(135deg, #f6ead8 0%, #e8d3a6 58%, #b6b36e 100%);
   color: var(--fb-ink);
 }
 
-.fb-mood__dark {
+.fb-mood--dark {
   background:
-    radial-gradient(circle at 80% 20%, rgba(214, 177, 106, 0.18), transparent 34%),
-    linear-gradient(135deg, #34391f 0%, #14130f 54%, #050505 100%);
+    radial-gradient(circle at 80% 20%, rgba(214, 177, 106, 0.18), transparent 36%),
+    linear-gradient(135deg, #2c321d 0%, #12120f 52%, #050505 100%);
   color: #fff3d8;
 }
 
@@ -175,7 +234,11 @@
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 64px;
-  align-items: end;
+  align-items: center;
+}
+
+.fb-mood__grid--reverse {
+  grid-template-columns: 0.9fr 1.1fr;
 }
 
 .fb-mood h2 {
@@ -186,6 +249,12 @@
   letter-spacing: -0.055em;
 }
 
+.fb-mood--dark h2 {
+  font-family: var(--font-premium);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
 .fb-mood p:not(.fb-kicker) {
   max-width: 520px;
   margin: 0;
@@ -193,15 +262,61 @@
   line-height: 1.35;
 }
 
-.fb-mood__dark .fb-kicker {
+.fb-mood--dark .fb-kicker {
   color: var(--fb-gold);
 }
 
-.fb-mood__dark p:not(.fb-kicker) {
+.fb-mood--dark p:not(.fb-kicker) {
   color: rgba(255, 243, 216, 0.72);
 }
 
-/* PLACES */
+/* =========================================================
+   09. IMAGE CAROUSEL
+   ========================================================= */
+
+.fb-image-carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 30px 80px rgba(31, 27, 22, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36);
+}
+
+.fb-image-carousel--dark {
+  background: rgba(255, 243, 216, 0.06);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 243, 216, 0.12);
+}
+
+.fb-image-carousel__track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: fbImageMarquee 34s linear infinite;
+}
+
+.fb-image-carousel:hover .fb-image-carousel__track {
+  animation-play-state: paused;
+}
+
+.fb-image-carousel img {
+  width: 320px;
+  height: 420px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 26px;
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.18),
+    0 2px 0 rgba(255, 255, 255, 0.24) inset;
+}
+
+/* =========================================================
+   10. NUESTROS CLIENTES
+   ========================================================= */
 
 .fb-places {
   background: var(--fb-cream);
@@ -221,28 +336,57 @@
 }
 
 .fb-places__grid article {
-  min-height: 170px;
-  padding: 26px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(31, 27, 22, 0.12);
+  position: relative;
+  min-height: 176px;
+  padding: 30px;
+  border: 1px solid rgba(31, 27, 22, 0.1);
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(255, 248, 234, 0.36));
+  box-shadow:
+    0 26px 70px rgba(31, 27, 22, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.74) inset;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   font-family: var(--font-display);
   font-size: 30px;
   line-height: 1;
   letter-spacing: -0.04em;
   transition:
     transform 0.24s ease,
-    background 0.24s ease;
+    background 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.fb-places__grid article::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -52px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 200, 91, 0.42), transparent 68%);
+  opacity: 0;
+  transition: opacity 0.24s ease;
 }
 
 .fb-places__grid article:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   background: #fff8ea;
+  box-shadow:
+    0 34px 90px rgba(31, 27, 22, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
 }
 
-/* WHAT WE DO */
+.fb-places__grid article:hover::after {
+  opacity: 1;
+}
+
+/* =========================================================
+   11. QUÉ HACEMOS
+   ========================================================= */
 
 .fb-do {
   background: #13120f;
@@ -267,43 +411,146 @@
   color: #fff3d8;
 }
 
-.fb-do__grid {
+/* Lista simple */
+
+.fb-services-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
   border-top: 1px solid rgba(255, 243, 216, 0.18);
-  border-left: 1px solid rgba(255, 243, 216, 0.18);
 }
 
-.fb-do__grid article {
-  min-height: 310px;
-  padding: 28px;
-  border-right: 1px solid rgba(255, 243, 216, 0.18);
+.fb-services-list article {
+  display: grid;
+  grid-template-columns: 80px 0.8fr 1fr;
+  gap: 28px;
+  align-items: baseline;
+  padding: 28px 0;
   border-bottom: 1px solid rgba(255, 243, 216, 0.18);
 }
 
-.fb-do__grid span {
-  display: block;
-  margin-bottom: 76px;
+.fb-services-list span {
   color: var(--fb-gold);
   font-size: 13px;
   font-weight: 800;
 }
 
-.fb-do__grid h3 {
-  margin: 0 0 14px;
+.fb-services-list h3 {
+  margin: 0;
   color: #fff3d8;
-  font-size: 34px;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
-.fb-do__grid p {
+.fb-services-list p {
   margin: 0;
   color: rgba(255, 243, 216, 0.68);
   font-size: 16px;
 }
 
-/* FINAL */
+/* Oculta grilla vieja si quedó en HTML */
+
+.fb-do__grid {
+  display: none;
+}
+
+/* =========================================================
+   12. RESEÑAS
+   ========================================================= */
+
+.fb-reviews {
+  overflow: hidden;
+  background: #f6ead8;
+  color: var(--fb-ink);
+  border-top: 0;
+}
+
+.fb-reviews .section-label {
+  color: var(--fb-olive);
+}
+
+.fb-reviews h2 {
+  color: var(--fb-ink);
+}
+
+.fb-reviews-carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 8px 0 24px;
+}
+
+.fb-reviews-carousel__track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  animation: fbReviewsMarquee 38s linear infinite;
+}
+
+.fb-reviews-carousel:hover .fb-reviews-carousel__track {
+  animation-play-state: paused;
+}
+
+.fb-review-card {
+  width: 430px;
+  min-height: 250px;
+  flex: 0 0 auto;
+  padding: 28px;
+  border-radius: 26px;
+  background: #fffaf0;
+  box-shadow:
+    0 26px 70px rgba(31, 27, 22, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.fb-review-card__top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.fb-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0f6b52;
+  color: #fffaf0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.fb-review-card strong {
+  display: block;
+  color: var(--fb-ink);
+  font-size: 17px;
+}
+
+.fb-review-card span {
+  display: block;
+  color: rgba(31, 27, 22, 0.48);
+  font-size: 13px;
+}
+
+.fb-stars {
+  margin-bottom: 14px;
+  color: #f2b400;
+  letter-spacing: 0.08em;
+  font-size: 17px;
+}
+
+.fb-review-card p {
+  margin: 0;
+  color: rgba(31, 27, 22, 0.78);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   13. FINAL CTA
+   ========================================================= */
 
 .fb-final {
   padding: 140px 0;
@@ -337,7 +584,9 @@
   font-size: 20px;
 }
 
-/* CONTACT OVERRIDES */
+/* =========================================================
+   14. CONTACT FORM OVERRIDES
+   ========================================================= */
 
 .fb-page .cta-section {
   background: #050505;
@@ -372,64 +621,49 @@
   color: #111;
 }
 
-/* HEADER LANGUAGE LINKS */
+/* =========================================================
+   15. ANIMATIONS
+   ========================================================= */
 
-.fb-page .lang-switch a {
-  opacity: 0.5;
-  color: inherit;
+@keyframes fbImageMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 9px));
+  }
 }
 
-.fb-page .lang-switch a.is-active {
-  opacity: 1;
-  color: #020617;
+@keyframes fbReviewsMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 11px));
+  }
 }
 
-/* HERO ALIGN + TYPE FIX */
-
-.fb-hero__content {
-  max-width: var(--container);
-  width: min(var(--container), calc(100% - 40px));
-  margin: 0 auto;
-}
-
-.fb-hero h1 {
-  max-width: 1060px;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-}
-
-.fb-button {
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-/* HEADER CTA COLOR */
-
-.fb-page .nav-links .btn {
-  background: #d9822b;
-  border-color: #d9822b;
-  color: #fff8ed;
-}
-
-.fb-page .nav-links .btn:hover {
-  background: #b9641f;
-  border-color: #b9641f;
-  color: #fff8ed;
-}
-
-/* RESPONSIVE */
+/* =========================================================
+   16. RESPONSIVE / TABLET
+   ========================================================= */
 
 @media (max-width: 1024px) {
   .fb-mood__grid,
+  .fb-mood__grid--reverse,
   .fb-do__head {
     grid-template-columns: 1fr;
   }
 
-  .fb-places__grid,
-  .fb-do__grid {
+  .fb-places__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* =========================================================
+   17. RESPONSIVE / MOBILE
+   ========================================================= */
 
 @media (max-width: 760px) {
   .fb-hero {
@@ -445,14 +679,12 @@
   }
 
   .fb-statement,
-  .fb-mood__warm,
-  .fb-mood__dark,
+  .fb-mood,
   .fb-final {
     padding: 82px 0;
   }
 
-  .fb-places__grid,
-  .fb-do__grid {
+  .fb-places__grid {
     grid-template-columns: 1fr;
   }
 
@@ -461,11 +693,17 @@
     font-size: 28px;
   }
 
-  .fb-do__grid span {
-    margin-bottom: 48px;
+  .fb-image-carousel img {
+    width: 260px;
+    height: 350px;
   }
 
-  .fb-do__grid article {
-    min-height: 260px;
+  .fb-services-list article {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .fb-review-card {
+    width: 330px;
   }
 }
