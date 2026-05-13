@@ -69,7 +69,36 @@
    04. HEADER OVERRIDES
    ========================================================= */
 
+/* Marquee igual a landing principal */
 
+.fb-page .rk-marquee {
+  background: linear-gradient(
+    90deg,
+    #020617 0%,
+    #0f172a 40%,
+    #1e1b4b 100%
+  );
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fb-page .rk-marquee::before {
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(123, 69, 240, 0.3),
+    transparent 60%
+  );
+  filter: blur(60px);
+  opacity: 0.55;
+}
+
+.fb-page .rk-marquee__track span {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.fb-page .rk-marquee__track span::after {
+  color: rgba(255, 255, 255, 0.45);
+}
 
 .fb-page .lang-switch a {
   opacity: 0.5;
