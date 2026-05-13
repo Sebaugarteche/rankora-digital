@@ -69,17 +69,7 @@
    04. HEADER OVERRIDES
    ========================================================= */
 
-.fb-page .nav-links .btn {
-  background: var(--fb-orange);
-  border-color: var(--fb-orange);
-  color: #fff8ed;
-}
 
-.fb-page .nav-links .btn:hover {
-  background: var(--fb-orange-dark);
-  border-color: var(--fb-orange-dark);
-  color: #fff8ed;
-}
 
 .fb-page .lang-switch a {
   opacity: 0.5;
