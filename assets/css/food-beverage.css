@@ -71,7 +71,7 @@
 
 /* Marquee igual a landing principal */
 
-.fb-page .rk-marquee {
+body.fb-page .rk-marquee {
   background: linear-gradient(
     90deg,
     #020617 0%,
@@ -82,7 +82,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.fb-page .rk-marquee::before {
+body.fb-page .rk-marquee::before {
   background: radial-gradient(
     circle at 30% 50%,
     rgba(123, 69, 240, 0.3),
@@ -90,15 +90,23 @@
   );
   filter: blur(60px);
   opacity: 0.55;
+  mix-blend-mode: normal;
 }
 
-.fb-page .rk-marquee__track span {
+body.fb-page .rk-marquee__track {
+  position: relative;
+  z-index: 2;
+}
+
+body.fb-page .rk-marquee__track span {
   color: rgba(255, 255, 255, 0.86);
 }
 
-.fb-page .rk-marquee__track span::after {
+body.fb-page .rk-marquee__track span::after {
   color: rgba(255, 255, 255, 0.45);
 }
+
+/* Language switch */
 
 .fb-page .lang-switch a {
   opacity: 0.5;
